@@ -1,5 +1,7 @@
 FROM maven:3.8-openjdk-17 AS build
 COPY . .
+RUN mvn clean package -DskipTests
+
 
 FROM eclipse-temurin:17-jdk-jammy
 # FROM openjdk:17-jdk-slim
