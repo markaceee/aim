@@ -2,10 +2,10 @@ FROM maven:3.8-openjdk-17 AS build
 COPY . .
 RUN mvc clean package -DskipTests
 
-FROM eclipse-temurin:17-jdk-jammy
-COPY --from=build /target/server-0.0.1-SNAPSHOT.jar server.jar
+FROM openjdk:17-jdk-slim
+COPY --from=build /target/server-0.0.1-SNAPSHOT.jar demo.jar
 EXPOSE 8080
-ENTRYPOINT [ "java", "-jar", "server.jar" ]
+ENTRYPOINT [ "java", "-jar", "demo.jar" ]
 
 
 
