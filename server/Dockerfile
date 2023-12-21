@@ -19,12 +19,9 @@ FROM ubuntu:latest AS build
 
 RUN apt-get update
 RUN apt-get install -y openjdk-17-jdk
+COPY . .
 
-WORKDIR /app
-
-# Copy only necessary files for the build
-COPY build.gradle .
-COPY src ./src
+WORKDIR /server
 
 # Ensure Gradle Wrapper has executable permissions
 RUN chmod +x ./gradlew
