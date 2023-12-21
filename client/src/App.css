@@ -1,0 +1,82 @@
+.student-management-tbl tr,
+.student-registration-tbl tr {
+  display: flex;
+  border-bottom: 1px solid #f1f1f1;
+}
+.student-management-tbl th,
+.student-registration-tbl th {
+  padding-left: 5px;
+  display: flex;
+  align-items: center;
+  background-color: #f1f1f1;
+  width: 33.33%;
+}
+.student-management-tbl td,
+.student-registration-tbl td {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.text-input,
+.number-input {
+  width: 75%;
+  height: 40px;
+  border: solid 1px;
+  border-radius: 5px;
+}
+.number-input::-webkit-inner-spin-button,
+.number-input::-webkit-outer-spin-button {
+  -webkit-appearance: none; /* WebKit browsers like Chrome and Safari */
+  margin: 0; /* Removes the default margin */
+}
+.text-area {
+  width: 75%;
+  border: solid 1px #6b7280;
+  border-radius: 5px;
+}
+.date-input {
+  width: 25%;
+  height: 30px;
+  border: solid 1px #f1f1f1;
+  border-radius: 5px;
+}
+.image-input {
+  width: 25%;
+  height: 30px;
+  border: solid 1px #f1f1f1;
+  border-radius: 5px;
+}
+.student-registration-tbl span {
+  color: red;
+  font-size: small;
+}
+
+.w3-school-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.w3-school-table th,
+.w3-school-table td {
+  text-align: left;
+  padding: 8px;
+}
+
+.w3-school-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.w3-school-table th {
+  /* background-color: #515a79; */
+  color: black;
+}
+
+.lesson-history-tbl th,
+td {
+  padding: 10px;
+  border-right: solid 1px #d0d0d0;
+}
+.lesson-history-tbl tr {
+  margin: 5px;
+  border: solid 1px #d0d0d0;
+}
