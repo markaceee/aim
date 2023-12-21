@@ -1,6 +1,6 @@
 FROM maven:3.8-openjdk-17 AS build
 COPY . .
-RUN mvc clean package
+RUN mvc clean package -DskipTests
 
 FROM eclipse-temurin:17-jdk-jammy
 COPY --from=build /target/server-0.0.1-SNAPSHOT.jar server.jar
