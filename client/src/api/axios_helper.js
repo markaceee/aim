@@ -13,7 +13,8 @@ export const removeAuthHeader = () => {
   window.localStorage.removeItem("auth_token");
 };
 
-axios.defaults.baseURL = "http://localhost:8080/api/aim";
+axios.defaults.baseURL = 'https://aim-lgn2.onrender.com/api/aim';
+// axios.defaults.baseURL = "http://localhost:8080/api/aim";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
 export const request = async (method, url, data) => {

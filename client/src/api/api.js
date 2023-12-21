@@ -1,5 +1,7 @@
 import http from "../utils/http";
 
+
+
 export const fetchAllUsers = async () => {
     return await http
         .get("/users")
