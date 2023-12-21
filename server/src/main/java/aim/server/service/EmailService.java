@@ -62,7 +62,7 @@ public class EmailService {
     }
 
     public void saveUserToDB(String email, String password, String token) {
-        userMapper.saveNonVerifiedUser(email, passwordEncoder.encode(password), token,
+        userMapper.saveNonVerifiedUser(email, password, token,
                 new Date(System.currentTimeMillis() + 6000000));
         // 10 minutes 600000
     }

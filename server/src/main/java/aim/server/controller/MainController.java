@@ -9,6 +9,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.xendit.exception.XenditException;
 
 import aim.server.dto.LoginRequest;
+import aim.server.dto.NonVerified;
 import aim.server.dto.PayoutData;
 import aim.server.dto.RegisterRequest;
 import aim.server.dto.Token;
@@ -31,6 +33,7 @@ import aim.server.model.User;
 import aim.server.model.UserRequest;
 import aim.server.service.AuthenticationService;
 import aim.server.service.CsvExportService;
+import aim.server.service.EmailService;
 import aim.server.service.UserService;
 import aim.server.service.XenditService;
 import lombok.RequiredArgsConstructor;
@@ -46,6 +49,7 @@ public class MainController {
     private final CsvExportService csvExportService;
     private final XenditService xenditService;
     private final UserService userService;
+    private final EmailService emailService;
 
     @PostMapping("/authenticate")
     public ResponseEntity<Token> authenticate(@RequestBody LoginRequest request) {
@@ -140,5 +144,29 @@ public class MainController {
     public ResponseEntity<String> postPayout(@RequestBody PayoutData payoutData) throws XenditException {
         xenditService.payout(payoutData);
         return ResponseEntity.ok("Sent");
+    }
+
+    @PostMapping("/non-verified-instructor")
+    public ResponseEntity<String> nonVerified(@RequestBody NonVerified nonVerified) {
+        if (nonVerified.getPassword().equals(nonVerified.getConfirmPassword())) {
+            emailService.sendMail(nonVerified.getEmail(), nonVerified.getPassword());
+        }
+        return ResponseEntity.ok(" ");
+    }
+
+    @GetMapping("/verified-email")
+    public ResponseEntity<LoginRequest> verified(@RequestParam String token) {
+        return ResponseEntity.ok(userMapper.checkToken(token));
+    }
+
+    @DeleteMapping("/delete-token")
+    public ResponseEntity<Void> deleteToken(@RequestParam String token) {
+        boolean tokenDeleted = userService.deleteToken(token);
+
+        if (tokenDeleted) {
+            return ResponseEntity.ok().build(); // Return 200 OK if token deletion was successful
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 }

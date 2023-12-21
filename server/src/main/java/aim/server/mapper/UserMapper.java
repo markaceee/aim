@@ -22,10 +22,10 @@ public interface UserMapper {
 
         // Register Start
         @Insert({
-                "INSERT INTO users (skype_id, email, picture, payment_mode, areas_for_improvement, role)",
-                "VALUES(#{skypeId}, #{email}, #{picture}, #{paymentMode}, #{areasForImprovement}, 'STUDENT')"
+                        "INSERT INTO users (skype_id, email, picture, payment_mode, areas_for_improvement, role)",
+                        "VALUES(#{skypeId}, #{email}, #{picture}, #{paymentMode}, #{areasForImprovement}, 'STUDENT')"
         })
-            
+
         @Options(useGeneratedKeys = true, keyProperty = "id")
         void insertUser(User user);
 
@@ -129,5 +129,5 @@ public interface UserMapper {
                         "DELETE FROM user_registration",
                         "WHERE token = #{token}"
         })
-        int deleteToken(String token);
+        boolean deleteToken(String token);
 }

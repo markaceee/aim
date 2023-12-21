@@ -17,8 +17,7 @@ public class UserService {
         return userMapper.fetchAllUsers();
     }
 
-    public int deleteToken(String token) {
+    public boolean deleteToken(String token) {
         return userMapper.deleteToken(token);
     }
-
 }
