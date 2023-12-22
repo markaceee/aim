@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import { transactionHistory } from "../../api/api";
+import ExportCsv from "../../components/export-csv/ExportCsv";
 import BasicTable from "../../components/ui/BasicTable";
 import WindowContainer from "../../components/ui/WindowContainer";
 
@@ -29,6 +30,12 @@ export const TransactionHistory = () => {
             footer: item.label,
         });
     });
+
+    const handleClearSearch = () => {
+        setStartDate();
+        setEndDate();
+        setTransactionData([])
+    };
 
 
     const formattedCurrency = (amount) => {
@@ -65,38 +72,66 @@ export const TransactionHistory = () => {
     return (
         <div className='w-full'>
             <WindowContainer headerTitle="Transaction History">
+                <div className="sub-header flex gap-3 p-3">
+                    <ExportCsv
+                        data={transactionData}
+                        headers={headers}
+                        filename={"test"}
+                        exportName={"Export"}
+                        textColor="text-white"
+                        bgColor="bg-[#1A6EB5]"
+                    />
+                </div>
+                <div className="p-3">
+                    <div className="mb-6">
+                        <WindowContainer headerTitle="Search transaction by date">
+                            <div className='p-3 w-full overflow-x-scroll'>
+                                <div className="w-full flex justify-center gap-6">
+                                    <div className="flex gap-2 items-center mb-2">
+                                        <label htmlFor="">Start Date: </label>
+                                        <DatePicker
+                                            className="border-2 border-solid"
+                                            selected={startDate}
+                                            onChange={(date) => setStartDate(date)}
+                                            showTimeSelect
+                                            dateFormat="MMMM d, yyyy h:mm aa"
+                                        />
+                                    </div>
+                                    <div className="flex gap-2 items-center">
+                                        <label htmlFor="">End Date: </label>
+                                        <DatePicker
+                                            className="border-2 border-solid"
+                                            selected={endDate}
+                                            onChange={(date) => setEndDate(date)}
+                                            showTimeSelect
+                                            dateFormat="MMMM d, yyyy h:mm aa"
+                                        />
+                                    </div>
+                                </div>
 
-                <div className='p-3 w-full overflow-x-scroll'>
-
-                    <div className="flex gap-2 items-center ">
-                        <div className="flex gap-2 items-center mb-2">
-                            <label htmlFor="">Start Date: </label>
-                            <DatePicker
-                                className="border-2 border-solid"
-                                selected={startDate}
-                                onChange={(date) => setStartDate(date)}
-                                showTimeSelect
-                                dateFormat="MMMM d, yyyy h:mm aa"
-                            />
-                        </div>
-                        <div className="flex gap-2 items-center">
-                            <label htmlFor="">End Date: </label>
-                            <DatePicker
-                                className="border-2 border-solid"
-                                selected={endDate}
-                                onChange={(date) => setEndDate(date)}
-                                showTimeSelect
-                                dateFormat="MMMM d, yyyy h:mm aa"
-                            />
-                        </div>
-                        <button className="px-5 py-2 rounded-lg bg-blue-500 text-white ml-5" onClick={handleClick}>Search</button>
+                                <div className="mx-auto my-2 flex justify-center gap-x-2 p-3 w-10/12 bg-[#f1f1f1]">
+                                    <button
+                                        onClick={handleClearSearch}
+                                        className="bg-[#1A6EB5] text-white px-2 py-1 rounded-sm w-1/4"
+                                    >
+                                        Clear Search
+                                    </button>
+                                    <button
+                                        onClick={handleClick}
+                                        type="submit"
+                                        className="bg-[#1A6EB5] text-white px-2 py-1 rounded-sm w-1/4"
+                                    >
+                                        Search
+                                    </button>
+                                </div>
+                            </div>
+                        </WindowContainer>
                     </div>
 
-                    {
+                    <WindowContainer headerTitle="Search result">
                         <BasicTable data={transactionData} columns={columns} />
-                    }
+                    </WindowContainer>
                 </div>
-
             </WindowContainer>
         </div>
     )

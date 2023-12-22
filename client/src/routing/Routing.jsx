@@ -56,7 +56,7 @@ const Routing = () => {
         path="/student-management"
         element={
           <Container>
-            <StudentManagement />
+              <StudentManagement />
           </Container>
         }
       />
@@ -110,7 +110,7 @@ const Routing = () => {
           path="/dashboard"
           element={
             <Container>
-              <Dashboard />
+                <Dashboard />
             </Container>
           }
         />

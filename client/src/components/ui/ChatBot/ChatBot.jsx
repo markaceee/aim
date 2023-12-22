@@ -31,8 +31,8 @@ function ChatBot() {
       setMessageArray(prevArray => [...prevArray, userMessage]);
   
       try {
-        // const res = await axios.get("http://localhost:8080/bot/chat?prompt=" + userQuestion);
-        const res = await axios.get("https://aim-lgn2.onrender.com/bot/chat?prompt=" + userQuestion);
+        const res = await axios.get("http://localhost:8080/bot/chat?prompt=" + userQuestion);
+        // const res = await axios.get("https://aim-lgn2.onrender.com/bot/chat?prompt=" + userQuestion);
         const aiMessage = {
           message: res.data,
           sentBy: "ai",

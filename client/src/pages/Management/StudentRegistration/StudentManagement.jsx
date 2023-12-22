@@ -134,7 +134,7 @@ const StudentManagement = () => {
           "December",
         ];
         const updatedData = res.data.map((user) => {
-          
+
           let fullName =
             user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1);
           if (user.middleName) fullName += " " + user.middleName.toUpperCase();
@@ -168,158 +168,164 @@ const StudentManagement = () => {
   };
 
   return (
-    <div className="student-management w-full p-3">
-      <div className="sub-header flex w-full gap-3 mb-3">
-        {/* <form onSubmit={handleSearch}>
-          <div className="p-2 pl-0">
-            <button type="submit">Register</button>
+    <div className="w-full">
+      <WindowContainer headerTitle="Dashboard">
+        <div className="student-management p-3 w-full">
+          <div className="sub-header flex gap-3 mb-3">
+              {/* <form onSubmit={handleSearch}>
+              <div className="p-2 pl-0">
+                <button type="submit">Register</button>
+              </div>
+            </form> */}
+            <Link to="/student-management/register">
+              <ActionButton
+                textContent="Register"
+                textColor="text-white"
+                bgColor="bg-[#1A6EB5]"
+              />
+            </Link>
+            <ExportCsv
+              data={objData}
+              headers={headers}
+              filename={"test"}
+              exportName={"Export"}
+              textColor="text-white"
+              bgColor="bg-[#1A6EB5]"
+            />
           </div>
-        </form> */}
-        <Link to="/student-management/register">
-          <ActionButton
-            textContent="Register"
-            textColor="text-white"
-            bgColor="bg-[#1A6EB5]"
-          />
-        </Link>
-        <ExportCsv
-          data={objData}
-          headers={headers}
-          filename={"test"}
-          exportName={"Export"}
-          textColor="text-white"
-          bgColor="bg-[#1A6EB5]"
-        />
-      </div>
-      <WindowContainer headerTitle="Student Search">
-        <form onSubmit={handleSearch} className="flex flex-col">
-          <table className="student-management-tbl flex w-full">
-            <tbody className="flex flex-col w-full">
-              <tr>
-                {/* <a href="localhost:8080/api/aim/search/{user.id}"></a> */}
-                <TextInputRow
-                  headerTitle="Name"
-                  className="outline outline-1 w-3/4"
-                  name="name"
-                  id="name"
-                  placeholder="Enter name"
-                  value={inputValues.name}
-                  onChange={handleInputChange}
-                />
-
-                <NumberInputRow
-                  headerTitle="Age"
-                  className="outline outline-1 w-3/4"
-                  name="age"
-                  id="age"
-                  placeholder="Enter Age"
-                  value={inputValues.age}
-                  onChange={handleInputChange}
-                />
-              </tr>
-              <tr>
-                <TextInputRow
-                  headerTitle="Skype"
-                  className="outline outline-1 w-3/4"
-                  name="skypeId"
-                  id="skypeId"
-                  placeholder="Enter skype"
-                  value={inputValues.skypeId}
-                  onChange={handleInputChange}
-                />
-
-                <EmailInputRow
-                  headerTitle="Email"
-                  className="outline outline-1 w-3/4"
-                  type="text"
-                  name="email"
-                  id="email"
-                  placeholder="Enter email"
-                  value={inputValues.email}
-                  onChange={handleInputChange}
-                />
-              </tr>
-              <tr>
-                <TextInputRow
-                  headerTitle="Address"
-                  className="outline outline-1 w-3/4"
-                  name="address"
-                  id="address"
-                  placeholder="Enter address"
-                  value={inputValues.address}
-                  onChange={handleInputChange}
-                />
-                <th>Date of Birth</th>
-                <td className="p-2">
-                  <DateInput
-                    data={dateOfBirthValue}
-                    setData={setDateOfBirthValue}
-                    className="outline outline-1"
-                    isRequired={false}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <th className="">Gender</th>
-                <td className="flex grow p-2 gap-x-2">
-                  <div className="flex items-center gap-x-2">
-                    <input
-                      className="border border-solid"
-                      type="radio"
-                      name="gender"
-                      id="male"
-                      value="male"
-                      checked={genderValue === "male"}
-                      onChange={handleGenderSelect}
+          <WindowContainer headerTitle="Student Search">
+            <form onSubmit={handleSearch} className="flex flex-col">
+              <table className="student-management-tbl flex w-full">
+                <tbody className="flex flex-col w-full">
+                  <tr>
+                    {/* <a href="localhost:8080/api/aim/search/{user.id}"></a> */}
+                    <TextInputRow
+                      headerTitle="Name"
+                      className="outline outline-1 w-3/4"
+                      name="name"
+                      id="name"
+                      placeholder="Enter name"
+                      value={inputValues.name}
+                      onChange={handleInputChange}
                     />
-                    <label htmlFor="male">Male</label>
-                  </div>
-                  <div className="flex items-center gap-x-2">
-                    <input
-                      className="border border-solid"
-                      type="radio"
-                      name="gender"
-                      id="female"
-                      value="female"
-                      checked={genderValue === "female"}
-                      onChange={handleGenderSelect}
+
+                    <NumberInputRow
+                      headerTitle="Age"
+                      className="outline outline-1 w-3/4"
+                      name="age"
+                      id="age"
+                      placeholder="Enter Age"
+                      value={inputValues.age}
+                      onChange={handleInputChange}
                     />
-                    <label htmlFor="female">Female</label>
-                  </div>
-                </td>
-                <PaymentSelectInputRow
-                  headerTitle="Payment Mode"
-                  className="border border-solid border-black w-3/4"
-                  name="paymentMode"
-                  id="paymentMode"
-                  data={paymentModeValue}
-                  setData={setPaymentModeValue}
-                />
-              </tr>
-            </tbody>
-          </table>
-          <div className="mx-auto my-2 flex justify-center gap-x-2 p-3 w-10/12 bg-[#f1f1f1]">
-            <button
-              onClick={handleClearSearch}
-              className="bg-[#1A6EB5] text-white px-2 py-1 rounded-sm w-1/4"
-            >
-              Clear Search
-            </button>
-            <button
-              type="submit"
-              className="bg-[#1A6EB5] text-white px-2 py-1 rounded-sm w-1/4"
-            >
-              Search
-            </button>
-          </div>
-        </form>
-      </WindowContainer>
-      <br />
-      <WindowContainer headerTitle="Search Result">
-        <StudentManagementResult searchResult={objData} columns={columns} />
-        {!isResultFound && <p>No result found</p>}
+                  </tr>
+                  <tr>
+                    <TextInputRow
+                      headerTitle="Skype"
+                      className="outline outline-1 w-3/4"
+                      name="skypeId"
+                      id="skypeId"
+                      placeholder="Enter skype"
+                      value={inputValues.skypeId}
+                      onChange={handleInputChange}
+                    />
+
+                    <EmailInputRow
+                      headerTitle="Email"
+                      className="outline outline-1 w-3/4"
+                      type="text"
+                      name="email"
+                      id="email"
+                      placeholder="Enter email"
+                      value={inputValues.email}
+                      onChange={handleInputChange}
+                    />
+                  </tr>
+                  <tr>
+                    <TextInputRow
+                      headerTitle="Address"
+                      className="outline outline-1 w-3/4"
+                      name="address"
+                      id="address"
+                      placeholder="Enter address"
+                      value={inputValues.address}
+                      onChange={handleInputChange}
+                    />
+                    <th>Date of Birth</th>
+                    <td className="p-2">
+                      <DateInput
+                        data={dateOfBirthValue}
+                        setData={setDateOfBirthValue}
+                        className="outline outline-1"
+                        isRequired={false}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <th className="">Gender</th>
+                    <td className="flex grow p-2 gap-x-2">
+                      <div className="flex items-center gap-x-2">
+                        <input
+                          className="border border-solid"
+                          type="radio"
+                          name="gender"
+                          id="male"
+                          value="male"
+                          checked={genderValue === "male"}
+                          onChange={handleGenderSelect}
+                        />
+                        <label htmlFor="male">Male</label>
+                      </div>
+                      <div className="flex items-center gap-x-2">
+                        <input
+                          className="border border-solid"
+                          type="radio"
+                          name="gender"
+                          id="female"
+                          value="female"
+                          checked={genderValue === "female"}
+                          onChange={handleGenderSelect}
+                        />
+                        <label htmlFor="female">Female</label>
+                      </div>
+                    </td>
+                    <PaymentSelectInputRow
+                      headerTitle="Payment Mode"
+                      className="border border-solid border-black w-3/4"
+                      name="paymentMode"
+                      id="paymentMode"
+                      data={paymentModeValue}
+                      setData={setPaymentModeValue}
+                    />
+                  </tr>
+                </tbody>
+              </table>
+              <div className="mx-auto my-2 flex justify-center gap-x-2 p-3 w-10/12 bg-[#f1f1f1]">
+                <button
+                  onClick={handleClearSearch}
+                  className="bg-[#1A6EB5] text-white px-2 py-1 rounded-sm w-1/4"
+                >
+                  Clear Search
+                </button>
+                <button
+                  type="submit"
+                  className="bg-[#1A6EB5] text-white px-2 py-1 rounded-sm w-1/4"
+                >
+                  Search
+                </button>
+              </div>
+            </form>
+          </WindowContainer>
+          <br />
+          <WindowContainer headerTitle="Search Result">
+            <StudentManagementResult searchResult={objData} columns={columns} />
+            {!isResultFound && <p>No result found</p>}
+          </WindowContainer>
+        </div>
       </WindowContainer>
     </div>
+
+
   );
 };
 
