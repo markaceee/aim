@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import DashboardWhite from "../../assets/svg/dashboard-white.svg";
 import { sidebarData } from "../../data/sidebarData";
 import SidebarIcon from "./SidebarIcon";
+import DashboardWhite from "../../assets/svg/dashboard-white.svg";
 
-import { useNavigate } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
+import { useNavigate } from "react-router-dom";
 
 const SidebarItem = ({ title, icon, route, setDoucmentTitle }) => {
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ const Sidebar = () => {
   }, [document_title]);
 
   return (
-    <div className="sidebar w-60 bg-slate-200 text-slate-950 h-full">
+    <div className="sidebar w-2/12 bg-slate-200 text-slate-950">
       <ul className=" bg-[#F0F0F0] h-full">
         <Link
           to={"/dashboard"}
@@ -39,7 +39,7 @@ const Sidebar = () => {
             setDoucmentTitle("Dashboard");
           }}
         >
-          <li className="flex gap-2 sm:justify-left items-center p-2 pl-3 bg-gradient-to-b from-[#576380] to-[#404D6C] text-slate-50">
+          <li className="flex justify-center sm:justify-left items-center p-2 pl-3 bg-gradient-to-b from-[#576380] to-[#404D6C] text-slate-50">
             <span>
               <img
                 src={DashboardWhite}
@@ -47,7 +47,7 @@ const Sidebar = () => {
                 className=" max-w-none h-6 sm:h-8"
               />
             </span>
-            <p className="text-xs hidden md:block">
+            <p className="pl-3 text-xs sm:text-lg hidden md:block">
               CONTROL PANEL
             </p>
           </li>
@@ -58,7 +58,7 @@ const Sidebar = () => {
             setDoucmentTitle("Test");
           }}
         >
-          <li className="text-center md:text-left text-sm text-blue-600 p-2 pl-3 ">
+          <li className=" text-center md:text-left text-sm text-blue-600 p-2 pl-3 ">
             Go to contents menu
           </li>
         </Link>
