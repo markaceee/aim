@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
@@ -28,7 +27,6 @@ public class EmailService {
     @Autowired
     private TemplateEngine templateEngine;
 
-    private final PasswordEncoder passwordEncoder;
     private final UserMapper userMapper;
 
     public Boolean sendMail(String email, String password) {
