@@ -1,6 +1,6 @@
+import ChatBot from "./ChatBot/ChatBot";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
-import Footer from "./Footer";
 
 const Container = ({ children }) => {
   return (
@@ -11,6 +11,7 @@ const Container = ({ children }) => {
         {children}
       </div>
       {/* <Footer /> */}
+      <ChatBot />
     </div>
   );
 };
