@@ -99,12 +99,12 @@ const Routing = () => {
       />
       {/* ------------------------------------------- */}
       <Route
-        element={
-          <PrivateRouteAdmin
-            decodedToken={decodedToken}
-            isExpired={isExpired}
-          />
-        }
+        // element={
+        //   <PrivateRouteAdmin
+        //     decodedToken={decodedToken}
+        //     isExpired={isExpired}
+        //   />
+        // }
       >
         <Route
           path="/dashboard"

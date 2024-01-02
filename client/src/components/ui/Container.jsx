@@ -8,7 +8,9 @@ const Container = ({ children }) => {
       <Header />
       <div className="content-container flex">
         <Sidebar />
+        <div className="p-6 w-full">
         {children}
+        </div>
       </div>
       {/* <Footer /> */}
       <ChatBot />

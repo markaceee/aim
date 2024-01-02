@@ -72,7 +72,7 @@ export const TransactionHistory = () => {
     return (
         <div className='w-full'>
             <WindowContainer headerTitle="Transaction History">
-                <div className="sub-header flex gap-3 p-3">
+                <div className="sub-header flex px-9 py-6">
                     <ExportCsv
                         data={transactionData}
                         headers={headers}
@@ -82,7 +82,7 @@ export const TransactionHistory = () => {
                         bgColor="bg-[#1A6EB5]"
                     />
                 </div>
-                <div className="p-3">
+                <div className="px-9 pb-6">
                     <div className="mb-6">
                         <WindowContainer headerTitle="Search transaction by date">
                             <div className='p-3 w-full overflow-x-scroll'>
@@ -90,7 +90,7 @@ export const TransactionHistory = () => {
                                     <div className="flex gap-2 items-center mb-2">
                                         <label htmlFor="">Start Date: </label>
                                         <DatePicker
-                                            className="border-2 border-solid"
+                                            className="outline outline-0 rounded-sm"
                                             selected={startDate}
                                             onChange={(date) => setStartDate(date)}
                                             showTimeSelect
@@ -100,7 +100,7 @@ export const TransactionHistory = () => {
                                     <div className="flex gap-2 items-center">
                                         <label htmlFor="">End Date: </label>
                                         <DatePicker
-                                            className="border-2 border-solid"
+                                            className="outline outline-0 rounded-sm"
                                             selected={endDate}
                                             onChange={(date) => setEndDate(date)}
                                             showTimeSelect

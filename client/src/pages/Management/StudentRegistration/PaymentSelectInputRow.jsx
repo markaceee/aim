@@ -10,7 +10,7 @@ const PaymentSelectInputRow = ({
 }) => {
   return (
     <>
-      <th>{headerTitle}</th>
+      <th><span className="ml-3">{headerTitle}</span></th>
       <td className="p-2">
         <select
           onChange={(e) => setData(e.target.value)}
