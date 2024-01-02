@@ -174,18 +174,17 @@ const Register = ({ onImageResized }) => {
   };
 
   return (
-    <div className="w-full">
-      <WindowContainer headerTitle="Student Registration">
-        <form className="w-full m-5" onSubmit={handleSubmit}>
-          <div className="h-10 w-full text-white bg-[#404D6C] p-1">
+    <WindowContainer headerTitle="Student Registration">
+        <form className="w-full px-9 py-6" onSubmit={handleSubmit}>
+          <div className="h-10 w-full text-white bg-[#404D6C] flex items-center pl-3">
             Student Information
           </div>
-          <div className="w-full overflow-scroll overflow-x-hidden h-5/6">
+          <div className="w-full overflow-x-hidden h-5/6">
             <div className="w-full">
               <table className="flex w-full student-registration-tbl">
                 <tbody className="flex flex-col w-full">
                   <tr>
-                    <th>First Name</th>
+                    <th><div className="ml-3">First Name</div></th>
                     <InputField
                       name="firstName"
                       type="text"
@@ -196,7 +195,7 @@ const Register = ({ onImageResized }) => {
                     />
                   </tr>
                   <tr>
-                    <th>Middle Name</th>
+                    <th><div className="ml-3">Middle Name</div></th>
                     <InputField
                       name="middleName"
                       type="text"
@@ -207,7 +206,7 @@ const Register = ({ onImageResized }) => {
                     />
                   </tr>
                   <tr>
-                    <th>Last Name</th>
+                    <th><div className="ml-3">Last Name</div></th>
                     <InputField
                       name="lastName"
                       type="text"
@@ -218,7 +217,7 @@ const Register = ({ onImageResized }) => {
                     />
                   </tr>
                   <tr>
-                    <th>Age</th>
+                    <th><div className="ml-3">Age</div></th>
                     <InputField
                       label="Age"
                       name="age"
@@ -232,7 +231,7 @@ const Register = ({ onImageResized }) => {
                     />
                   </tr>
                   <tr>
-                    <th>Date of Birth</th>
+                    <th><div className="ml-3">Date of Birth</div></th>
                     <InputField
                       label="Date of Birth"
                       name="dateOfBirth"
@@ -244,7 +243,7 @@ const Register = ({ onImageResized }) => {
                     />
                   </tr>
                   <tr>
-                    <th>Gender</th>
+                    <th><div className="ml-3">Gender</div></th>
                     <td>
                       <div className="flex flex-row gap-3 m-2">
                         <RadioButton
@@ -272,7 +271,7 @@ const Register = ({ onImageResized }) => {
                     </td>
                   </tr>
                   <tr>
-                    <th>Address</th>
+                    <th><div className="ml-3">Address</div></th>
                     <InputField
                       label="Address"
                       name="address"
@@ -286,7 +285,7 @@ const Register = ({ onImageResized }) => {
                     />
                   </tr>
                   <tr>
-                    <th>Email Address</th>
+                    <th><div className="ml-3">Email Address</div></th>
                     <InputField
                       label="Email Address"
                       name="email"
@@ -301,7 +300,7 @@ const Register = ({ onImageResized }) => {
                   </tr>
 
                   <tr>
-                    <th>Password</th>
+                    <th><div className="ml-3">Password</div></th>
                     <InputField
                       name="password"
                       type="password"
@@ -313,7 +312,7 @@ const Register = ({ onImageResized }) => {
                   </tr>
 
                   <tr>
-                    <th>Skype ID</th>
+                    <th><div className="ml-3">Skype ID</div></th>
                     <InputField
                       label="Skype ID"
                       name="skypeId"
@@ -327,7 +326,7 @@ const Register = ({ onImageResized }) => {
                   </tr>
 
                   <tr>
-                    <th>Mode of Payment</th>
+                    <th><div className="ml-3">Mode of Payment</div></th>
                     <SelectField
                       id="modeOfPayment"
                       name="modeOfPayment"
@@ -343,7 +342,7 @@ const Register = ({ onImageResized }) => {
                   </tr>
 
                   <tr>
-                    <th>Areas for Improvements</th>
+                    <th><div className="ml-3">Areas for Improvements</div></th>
                     <TextAreaField
                       name="areasForImprovement"
                       value={student.areasForImprovement}
@@ -353,7 +352,7 @@ const Register = ({ onImageResized }) => {
                     />
                   </tr>
                   <tr>
-                    <th>Upload Profile Picture</th>
+                    <th><div className="ml-3">Upload Profile Picture</div></th>
                     <td>
                       {!imageUploaded && (
                         <>
@@ -402,7 +401,6 @@ const Register = ({ onImageResized }) => {
           <Toaster />
         </form>
       </WindowContainer>
-    </div>
   );
 };
 

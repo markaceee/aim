@@ -169,8 +169,8 @@ const StudentManagement = () => {
 
   return (
     <div className="w-full">
-      <WindowContainer headerTitle="Dashboard">
-        <div className="student-management p-3 w-full">
+      <WindowContainer headerTitle="Student">
+        <div className="student-management px-9 py-6 w-full">
           <div className="sub-header flex gap-3 mb-3">
               {/* <form onSubmit={handleSearch}>
               <div className="p-2 pl-0">
@@ -179,7 +179,7 @@ const StudentManagement = () => {
             </form> */}
             <Link to="/student-management/register">
               <ActionButton
-                textContent="Register"
+                textContent="New Student Registration"
                 textColor="text-white"
                 bgColor="bg-[#1A6EB5]"
               />
@@ -188,11 +188,12 @@ const StudentManagement = () => {
               data={objData}
               headers={headers}
               filename={"test"}
-              exportName={"Export"}
+              exportName={"Download in CSV format"}
               textColor="text-white"
               bgColor="bg-[#1A6EB5]"
             />
           </div>
+
           <WindowContainer headerTitle="Student Search">
             <form onSubmit={handleSearch} className="flex flex-col">
               <table className="student-management-tbl flex w-full">
@@ -201,7 +202,7 @@ const StudentManagement = () => {
                     {/* <a href="localhost:8080/api/aim/search/{user.id}"></a> */}
                     <TextInputRow
                       headerTitle="Name"
-                      className="outline outline-1 w-3/4"
+                      className="outline outline-0 w-3/4 rounded-sm"
                       name="name"
                       id="name"
                       placeholder="Enter name"
@@ -211,7 +212,7 @@ const StudentManagement = () => {
 
                     <NumberInputRow
                       headerTitle="Age"
-                      className="outline outline-1 w-3/4"
+                      className="outline outline-0 w-3/4 rounded-sm"
                       name="age"
                       id="age"
                       placeholder="Enter Age"
@@ -222,7 +223,7 @@ const StudentManagement = () => {
                   <tr>
                     <TextInputRow
                       headerTitle="Skype"
-                      className="outline outline-1 w-3/4"
+                      className="outline outline-0 w-3/4 rounded-sm"
                       name="skypeId"
                       id="skypeId"
                       placeholder="Enter skype"
@@ -232,7 +233,7 @@ const StudentManagement = () => {
 
                     <EmailInputRow
                       headerTitle="Email"
-                      className="outline outline-1 w-3/4"
+                      className="outline outline-0 w-3/4 rounded-sm"
                       type="text"
                       name="email"
                       id="email"
@@ -244,25 +245,25 @@ const StudentManagement = () => {
                   <tr>
                     <TextInputRow
                       headerTitle="Address"
-                      className="outline outline-1 w-3/4"
+                      className="outline outline-0 w-3/4 rounded-sm"
                       name="address"
                       id="address"
                       placeholder="Enter address"
                       value={inputValues.address}
                       onChange={handleInputChange}
                     />
-                    <th>Date of Birth</th>
+                    <th><span className="ml-3">Date of Birth</span></th>
                     <td className="p-2">
                       <DateInput
                         data={dateOfBirthValue}
                         setData={setDateOfBirthValue}
-                        className="outline outline-1"
+                        className="outline outline-0 w-3/4 rounded-sm"
                         isRequired={false}
                       />
                     </td>
                   </tr>
                   <tr>
-                    <th className="">Gender</th>
+                  <th><span className="ml-3">Gender</span></th>
                     <td className="flex grow p-2 gap-x-2">
                       <div className="flex items-center gap-x-2">
                         <input
@@ -291,7 +292,7 @@ const StudentManagement = () => {
                     </td>
                     <PaymentSelectInputRow
                       headerTitle="Payment Mode"
-                      className="border border-solid border-black w-3/4"
+                      className="outline outline-0 w-3/4 rounded-sm"
                       name="paymentMode"
                       id="paymentMode"
                       data={paymentModeValue}
@@ -316,6 +317,8 @@ const StudentManagement = () => {
               </div>
             </form>
           </WindowContainer>
+          <br />
+          <br />
           <br />
           <WindowContainer headerTitle="Search Result">
             <StudentManagementResult searchResult={objData} columns={columns} />

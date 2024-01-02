@@ -104,7 +104,7 @@ const Payout = () => {
     return (<>
         <div className='w-full'>
             <WindowContainer headerTitle="Payment">
-                <div className='p-3 w-full overflow-x-scroll'>
+                <div className='px-9 py-6 w-full overflow-x-scroll'>
                     <div className='mb-3 flex justify-between'>
                         <h1 className='text-lg'><span className='font-bold'>Total Balance:</span> {balance ? formattedCurrency(balance) : "Loading..."}</h1>
                         <p className='text-blue-600 underline'><Link to={"/payout/history"}>Transaction History</Link></p>

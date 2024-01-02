@@ -1,6 +1,6 @@
 import React from "react";
-import ErrorMessage from "./ErrorMessage";
 import invalid from "../../../assets/svg/invalid.svg";
+import ErrorMessage from "./ErrorMessage";
 
 const InputField = ({
   name,
@@ -14,7 +14,7 @@ const InputField = ({
   <td>
     <input
       type={type}
-      className={`text-input rounded-md ${
+      className={`text-input rounded-sm ${
         error ? "border-red-500 border-2" : "border-gray-300"
       }`}
       name={name}

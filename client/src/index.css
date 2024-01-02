@@ -18,3 +18,17 @@ html {
   color: black;
   transition: all 0.2s ease-in-out;
 }
+
+.shadow:before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 9;
+  width: 50%;
+  height: 30px;
+  background: rgba(0,0,0,0.3);
+  transform-origin: right;
+  transform: skewY(-8deg);
+  z-index: -1;
+  filter: blur(10px);
+}

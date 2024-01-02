@@ -32,7 +32,7 @@ const BasicTable = ({ data, columns, openModal, setOpenModal, setSelectedUser}) 
       <div className="flex items-center justify-center w-full m-2">
         <label htmlFor="searchFilter">Search: </label>
         <input
-          className="w-3/4 outline outline-1 p-0 pl-2 m-1"
+          className="w-3/4 outline outline-0 p-0 pl-2 m-1 rounded-sm"
           type="text"
           value={filtering}
           onChange={(e) => setFiltering(e.target.value)}
