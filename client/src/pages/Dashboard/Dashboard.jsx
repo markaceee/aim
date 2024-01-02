@@ -87,10 +87,10 @@ const Dashboard = () => {
   return (
     <div className="w-full">
       <WindowContainer headerTitle="Dashboard">
-        <div className="main-content-area  p-3 w-full">
-          <div className="flex justify-center flex-col items-center m-5">
+        <div className="w-full p-3 main-content-area">
+          <div className="flex flex-col items-center justify-center m-5">
             <StatusBox />
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 place-items-center p-5 w-full">
+            <div className="grid w-full grid-cols-1 p-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 place-items-center">
               {data.map((item, i) => {
                 return (
                   <div
@@ -102,14 +102,14 @@ const Dashboard = () => {
                         {item.name}
                       </h5>
                     </div>
-                    <div className="content flex justify-between items-center bg-white w-full h-20 min-w-fit overflow-hidden p-6">
+                    <div className="flex items-center justify-between w-full h-20 p-6 overflow-hidden bg-white content min-w-fit">
                       <img src={item.svg} alt="user logo" className="w-10" />
                       <p className="block font-sans text-base antialiased font-light leading-relaxed text-inherit sm:text-md md:text-lg lg:text-2xl">
-                        999
+                        <strong>999</strong>
                       </p>
                       <img src={unit} alt="unit logo" className="w-8" />
                     </div>
-                    <div className="flex justify-center items-center w-full p-2">
+                    <div className="flex items-center justify-center w-full p-2">
                       <p className="bg-[#DFDFDF] w-full text-center">
                         {item.content}
                       </p>
@@ -118,15 +118,13 @@ const Dashboard = () => {
                 );
               })}
             </div>
-            <div className="flex justify-center items-center w-2/5">
+            <div className="flex items-center justify-center w-2/5">
               <Button color="white" text="View by Month" />
             </div>
           </div>
         </div>
       </WindowContainer>
-
     </div>
-
   );
 };
 export default Dashboard;

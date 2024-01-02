@@ -34,17 +34,23 @@ const Routing = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/paypal" element={<Paypal />} />
-      <Route path="/payout" >
-        <Route index element={
-          <Container>
-            <Payout />
-          </Container>
-        }></Route>
-        <Route path="history" element={
-          <Container>
-            <TransactionHistory />
-          </Container>
-        }></Route>
+      <Route path="/payout">
+        <Route
+          index
+          element={
+            <Container>
+              <Payout />
+            </Container>
+          }
+        ></Route>
+        <Route
+          path="history"
+          element={
+            <Container>
+              <TransactionHistory />
+            </Container>
+          }
+        ></Route>
       </Route>
       <Route path="/instructor">
         <Route index element={<Instructor />} />
@@ -56,7 +62,7 @@ const Routing = () => {
         path="/student-management"
         element={
           <Container>
-              <StudentManagement />
+            <StudentManagement />
           </Container>
         }
       />
@@ -83,11 +89,7 @@ const Routing = () => {
       />
       <Route
         path="/student-management/show-student"
-        element={
-          <Container>
-            {/* <ShowStudent /> */}
-          </Container>
-        }
+        element={<Container>{/* <ShowStudent /> */}</Container>}
       />
       <Route
         path="/student-management/month"
@@ -99,18 +101,18 @@ const Routing = () => {
       />
       {/* ------------------------------------------- */}
       <Route
-        element={
-          <PrivateRouteAdmin
-            decodedToken={decodedToken}
-            isExpired={isExpired}
-          />
-        }
+      // element={
+      //   <PrivateRouteAdmin
+      //     decodedToken={decodedToken}
+      //     isExpired={isExpired}
+      //   />
+      // }
       >
         <Route
           path="/dashboard"
           element={
             <Container>
-                <Dashboard />
+              <Dashboard />
             </Container>
           }
         />

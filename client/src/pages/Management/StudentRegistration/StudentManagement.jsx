@@ -134,7 +134,6 @@ const StudentManagement = () => {
           "December",
         ];
         const updatedData = res.data.map((user) => {
-
           let fullName =
             user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1);
           if (user.middleName) fullName += " " + user.middleName.toUpperCase();
@@ -156,8 +155,11 @@ const StudentManagement = () => {
           return {
             id: user.id,
             fullName,
-            birthDate: dateOfBirth ? `${months[dateOfBirth.getMonth()]
-              } ${dateOfBirth.getDate()}, ${dateOfBirth.getFullYear()}` : "",
+            birthDate: dateOfBirth
+              ? `${
+                  months[dateOfBirth.getMonth()]
+                } ${dateOfBirth.getDate()}, ${dateOfBirth.getFullYear()}`
+              : "",
             ...user,
           };
         });
@@ -170,9 +172,9 @@ const StudentManagement = () => {
   return (
     <div className="w-full">
       <WindowContainer headerTitle="Dashboard">
-        <div className="student-management p-3 w-full">
-          <div className="sub-header flex gap-3 mb-3">
-              {/* <form onSubmit={handleSearch}>
+        <div className="w-full p-3 student-management">
+          <div className="flex gap-3 mb-3 sub-header">
+            {/* <form onSubmit={handleSearch}>
               <div className="p-2 pl-0">
                 <button type="submit">Register</button>
               </div>
@@ -195,13 +197,13 @@ const StudentManagement = () => {
           </div>
           <WindowContainer headerTitle="Student Search">
             <form onSubmit={handleSearch} className="flex flex-col">
-              <table className="student-management-tbl flex w-full">
+              <table className="flex w-full student-management-tbl">
                 <tbody className="flex flex-col w-full">
                   <tr>
                     {/* <a href="localhost:8080/api/aim/search/{user.id}"></a> */}
                     <TextInputRow
                       headerTitle="Name"
-                      className="outline outline-1 w-3/4"
+                      className="w-3/4 outline outline-1"
                       name="name"
                       id="name"
                       placeholder="Enter name"
@@ -211,7 +213,7 @@ const StudentManagement = () => {
 
                     <NumberInputRow
                       headerTitle="Age"
-                      className="outline outline-1 w-3/4"
+                      className="w-3/4 outline outline-1"
                       name="age"
                       id="age"
                       placeholder="Enter Age"
@@ -222,7 +224,7 @@ const StudentManagement = () => {
                   <tr>
                     <TextInputRow
                       headerTitle="Skype"
-                      className="outline outline-1 w-3/4"
+                      className="w-3/4 outline outline-1"
                       name="skypeId"
                       id="skypeId"
                       placeholder="Enter skype"
@@ -232,7 +234,7 @@ const StudentManagement = () => {
 
                     <EmailInputRow
                       headerTitle="Email"
-                      className="outline outline-1 w-3/4"
+                      className="w-3/4 outline outline-1"
                       type="text"
                       name="email"
                       id="email"
@@ -244,7 +246,7 @@ const StudentManagement = () => {
                   <tr>
                     <TextInputRow
                       headerTitle="Address"
-                      className="outline outline-1 w-3/4"
+                      className="w-3/4 outline outline-1"
                       name="address"
                       id="address"
                       placeholder="Enter address"
@@ -263,7 +265,7 @@ const StudentManagement = () => {
                   </tr>
                   <tr>
                     <th className="">Gender</th>
-                    <td className="flex grow p-2 gap-x-2">
+                    <td className="flex p-2 grow gap-x-2">
                       <div className="flex items-center gap-x-2">
                         <input
                           className="border border-solid"
@@ -291,7 +293,7 @@ const StudentManagement = () => {
                     </td>
                     <PaymentSelectInputRow
                       headerTitle="Payment Mode"
-                      className="border border-solid border-black w-3/4"
+                      className="w-3/4 border border-black border-solid"
                       name="paymentMode"
                       id="paymentMode"
                       data={paymentModeValue}
@@ -324,8 +326,6 @@ const StudentManagement = () => {
         </div>
       </WindowContainer>
     </div>
-
-
   );
 };
 
