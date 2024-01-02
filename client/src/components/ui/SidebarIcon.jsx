@@ -1,39 +1,82 @@
-import dashboard from "../../assets/svg/dashboard.svg";
-import studentManagement from "../../assets/svg/student-management.svg";
-import gear from "../../assets/svg/gear.svg";
-import analysisChart from "../../assets/svg/analysis-chart.svg";
-import bookshelf from "../../assets/svg/bookshelf.svg";
-import calendarLight from "../../assets/svg/calendar-light.svg";
-import check from "../../assets/svg/check.svg";
-import checklist from "../../assets/svg/checklist.svg";
-import document from "../../assets/svg/document.svg";
-import feedback from "../../assets/svg/feedback.svg";
-import invoiceCheck from "../../assets/svg/invoice-check-outline.svg";
-import invoiceLight from "../../assets/svg/invoice-light.svg";
-import paymentMethod from "../../assets/svg/payment-method.svg";
-import teacher from "../../assets/svg/teacher.svg";
+import { FcCollaboration, FcComboChart, FcCurrencyExchange, FcDebt, FcGrid, FcInspection, FcKindle, FcOnlineSupport, FcPlanner, FcPrint, FcReading, FcSettings, FcViewDetails } from "react-icons/fc";
 
-const icons = {
-  dashboard,
-  studentManagement,
-  gear,
-  analysisChart,
-  bookshelf,
-  calendarLight,
-  check,
-  checklist,
-  document,
-  feedback,
-  invoiceCheck,
-  invoiceLight,
-  paymentMethod,
-  teacher,
-};
+// const icons = {
+//   dashboard,
+//   studentManagement,
+//   gear,
+//   analysisChart,
+//   bookshelf,
+//   calendarLight,
+//   check,
+//   checklist,
+//   document,
+//   feedback,
+//   invoiceCheck,
+//   invoiceLight,
+//   paymentMethod,
+//   teacher,
+// };
+
+const icons = [
+  {
+    name: "dashboard",
+    icons: <FcGrid size='30' />
+  },
+  {
+    name: "studentManagement",
+    icons: <FcCollaboration size='30' />
+  },
+  {
+    name: "gear",
+    icons: <FcSettings size='30' />
+  },
+  {
+    name: "calendarLight",
+    icons: <FcPlanner size='30' />
+  },
+  {
+    name: "teacher",
+    icons: <FcOnlineSupport size='30' />
+  },
+  {
+    name: "checklist",
+    icons: <FcInspection size='30' />
+  },
+  {
+    name: "analysisChart",
+    icons: <FcComboChart size='30' />
+  },
+  {
+    name: "document",
+    icons: <FcKindle size='30' />
+  },
+  {
+    name: "feedback",
+    icons: <FcReading size='30' />
+  },
+  {
+    name: "paymentMethod",
+    icons: <FcDebt size='30' />
+  },
+  {
+    name: "bookshelf",
+    icons: <FcPrint size='30' />
+  },
+  {
+    name: "invoiceLight",
+    icons: <FcViewDetails size='30' />
+  },
+  {
+    name: "invoiceCheck",
+    icons: <FcCurrencyExchange size='30' />
+  },
+];
 
 const SidebarIcon = ({ iconName }) => {
-  let icon = icons[iconName] || null; // Or you can use a placeholder icon here
-
-  return <img className=" h-6 max-w-none" src={icon} alt={iconName} />;
+  // let icon = icons[iconName] || null; // Or you can use a placeholder icon here
+  let icon = icons.filter(i => i.name === iconName)
+  return icon[0]?.icons;
+  // return <img className=" h-6 max-w-none" src={icon} alt={iconName} />;
 };
 
 export default SidebarIcon;

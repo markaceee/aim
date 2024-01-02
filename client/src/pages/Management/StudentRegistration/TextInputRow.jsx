@@ -11,7 +11,7 @@ const TextInputRow = ({
 }) => {
   return (
     <>
-      <th>{headerTitle}</th>
+      <th><span className="ml-3">{headerTitle}</span></th>
       <td className="p-2">
         <input
           className={className}

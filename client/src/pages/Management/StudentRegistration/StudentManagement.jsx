@@ -171,17 +171,24 @@ const StudentManagement = () => {
 
   return (
     <div className="w-full">
+<<<<<<< HEAD
       <WindowContainer headerTitle="Dashboard">
         <div className="w-full p-3 student-management">
           <div className="flex gap-3 mb-3 sub-header">
             {/* <form onSubmit={handleSearch}>
+=======
+      <WindowContainer headerTitle="Student">
+        <div className="student-management px-9 py-6 w-full">
+          <div className="sub-header flex gap-3 mb-3">
+              {/* <form onSubmit={handleSearch}>
+>>>>>>> 076196b26be8f6ada11ccd0a8de7103f5134987c
               <div className="p-2 pl-0">
                 <button type="submit">Register</button>
               </div>
             </form> */}
             <Link to="/student-management/register">
               <ActionButton
-                textContent="Register"
+                textContent="New Student Registration"
                 textColor="text-white"
                 bgColor="bg-[#1A6EB5]"
               />
@@ -190,11 +197,12 @@ const StudentManagement = () => {
               data={objData}
               headers={headers}
               filename={"test"}
-              exportName={"Export"}
+              exportName={"Download in CSV format"}
               textColor="text-white"
               bgColor="bg-[#1A6EB5]"
             />
           </div>
+
           <WindowContainer headerTitle="Student Search">
             <form onSubmit={handleSearch} className="flex flex-col">
               <table className="flex w-full student-management-tbl">
@@ -203,7 +211,11 @@ const StudentManagement = () => {
                     {/* <a href="localhost:8080/api/aim/search/{user.id}"></a> */}
                     <TextInputRow
                       headerTitle="Name"
+<<<<<<< HEAD
                       className="w-3/4 outline outline-1"
+=======
+                      className="outline outline-0 w-3/4 rounded-sm"
+>>>>>>> 076196b26be8f6ada11ccd0a8de7103f5134987c
                       name="name"
                       id="name"
                       placeholder="Enter name"
@@ -213,7 +225,11 @@ const StudentManagement = () => {
 
                     <NumberInputRow
                       headerTitle="Age"
+<<<<<<< HEAD
                       className="w-3/4 outline outline-1"
+=======
+                      className="outline outline-0 w-3/4 rounded-sm"
+>>>>>>> 076196b26be8f6ada11ccd0a8de7103f5134987c
                       name="age"
                       id="age"
                       placeholder="Enter Age"
@@ -224,7 +240,11 @@ const StudentManagement = () => {
                   <tr>
                     <TextInputRow
                       headerTitle="Skype"
+<<<<<<< HEAD
                       className="w-3/4 outline outline-1"
+=======
+                      className="outline outline-0 w-3/4 rounded-sm"
+>>>>>>> 076196b26be8f6ada11ccd0a8de7103f5134987c
                       name="skypeId"
                       id="skypeId"
                       placeholder="Enter skype"
@@ -234,7 +254,11 @@ const StudentManagement = () => {
 
                     <EmailInputRow
                       headerTitle="Email"
+<<<<<<< HEAD
                       className="w-3/4 outline outline-1"
+=======
+                      className="outline outline-0 w-3/4 rounded-sm"
+>>>>>>> 076196b26be8f6ada11ccd0a8de7103f5134987c
                       type="text"
                       name="email"
                       id="email"
@@ -246,26 +270,35 @@ const StudentManagement = () => {
                   <tr>
                     <TextInputRow
                       headerTitle="Address"
+<<<<<<< HEAD
                       className="w-3/4 outline outline-1"
+=======
+                      className="outline outline-0 w-3/4 rounded-sm"
+>>>>>>> 076196b26be8f6ada11ccd0a8de7103f5134987c
                       name="address"
                       id="address"
                       placeholder="Enter address"
                       value={inputValues.address}
                       onChange={handleInputChange}
                     />
-                    <th>Date of Birth</th>
+                    <th><span className="ml-3">Date of Birth</span></th>
                     <td className="p-2">
                       <DateInput
                         data={dateOfBirthValue}
                         setData={setDateOfBirthValue}
-                        className="outline outline-1"
+                        className="outline outline-0 w-3/4 rounded-sm"
                         isRequired={false}
                       />
                     </td>
                   </tr>
                   <tr>
+<<<<<<< HEAD
                     <th className="">Gender</th>
                     <td className="flex p-2 grow gap-x-2">
+=======
+                  <th><span className="ml-3">Gender</span></th>
+                    <td className="flex grow p-2 gap-x-2">
+>>>>>>> 076196b26be8f6ada11ccd0a8de7103f5134987c
                       <div className="flex items-center gap-x-2">
                         <input
                           className="border border-solid"
@@ -293,7 +326,11 @@ const StudentManagement = () => {
                     </td>
                     <PaymentSelectInputRow
                       headerTitle="Payment Mode"
+<<<<<<< HEAD
                       className="w-3/4 border border-black border-solid"
+=======
+                      className="outline outline-0 w-3/4 rounded-sm"
+>>>>>>> 076196b26be8f6ada11ccd0a8de7103f5134987c
                       name="paymentMode"
                       id="paymentMode"
                       data={paymentModeValue}
@@ -318,6 +355,8 @@ const StudentManagement = () => {
               </div>
             </form>
           </WindowContainer>
+          <br />
+          <br />
           <br />
           <WindowContainer headerTitle="Search Result">
             <StudentManagementResult searchResult={objData} columns={columns} />

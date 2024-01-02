@@ -78,7 +78,7 @@ const Sidebar = () => {
           }}
         >
           <li className=" text-center md:text-left text-sm text-blue-600 p-2">
-            Link 1
+            Aim Coin Management
           </li>
         </Link>
         <Link
@@ -88,7 +88,7 @@ const Sidebar = () => {
           }}
         >
           <li className=" text-center md:text-left text-sm text-blue-600 p-2">
-            Link 2
+            Portfolio
           </li>
         </Link>
       </ul>
