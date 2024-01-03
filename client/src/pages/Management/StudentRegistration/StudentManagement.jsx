@@ -171,9 +171,9 @@ const StudentManagement = () => {
 
   return (
     <div className="w-full">
-      <WindowContainer headerTitle="Dashboard">
-        <div className="w-full p-3 student-management">
-          <div className="flex gap-3 mb-3 sub-header">
+      <WindowContainer headerTitle="Student" header={true}>
+        <div className="student-management px-9 py-6 w-full">
+          <div className="sub-header flex gap-3 mb-3">
             {/* <form onSubmit={handleSearch}>
               <div className="p-2 pl-0">
                 <button type="submit">Register</button>
@@ -209,7 +209,6 @@ const StudentManagement = () => {
                       id="name"
                       placeholder="Enter name"
                       value={inputValues.name}
-                      onChange={handleInputChange}
                     />
 
                     <NumberInputRow
@@ -219,7 +218,6 @@ const StudentManagement = () => {
                       id="age"
                       placeholder="Enter Age"
                       value={inputValues.age}
-                      onChange={handleInputChange}
                     />
                   </tr>
                   <tr>
@@ -230,7 +228,6 @@ const StudentManagement = () => {
                       id="skypeId"
                       placeholder="Enter skype"
                       value={inputValues.skypeId}
-                      onChange={handleInputChange}
                     />
 
                     <EmailInputRow
@@ -241,7 +238,6 @@ const StudentManagement = () => {
                       id="email"
                       placeholder="Enter email"
                       value={inputValues.email}
-                      onChange={handleInputChange}
                     />
                   </tr>
                   <tr>
@@ -252,7 +248,6 @@ const StudentManagement = () => {
                       id="address"
                       placeholder="Enter address"
                       value={inputValues.address}
-                      onChange={handleInputChange}
                     />
                     <th>
                       <span className="ml-3">Date of Birth</span>

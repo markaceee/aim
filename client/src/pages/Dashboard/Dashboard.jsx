@@ -99,9 +99,9 @@ const Dashboard = () => {
   ];
   return (
     <div className="w-full">
-      <WindowContainer headerTitle="Dashboard">
-        <div className="w-full p-3 main-content-area">
-          <div className="flex flex-col items-center justify-center m-5">
+      <WindowContainer headerTitle="Dashboard" header={true}>
+        <div className="main-content-area px-9 py-6 w-full">
+          <div className="flex justify-center flex-col items-center">
             <StatusBox />
             <div className="grid w-full grid-cols-1 p-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 place-items-center">
               {data.map((item, i) => {

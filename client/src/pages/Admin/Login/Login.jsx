@@ -57,7 +57,7 @@ const Login = ({ decodedToken, isExpired }) => {
         <Box
           w="20rem"
           h="100%"
-          bg="blue.600"
+          bg="#3371BC"
           fontSize="sm"
           p="1rem"
           alignItems="center"
@@ -115,7 +115,7 @@ const Login = ({ decodedToken, isExpired }) => {
               )}
 
               <Box boxShadow="md" borderBottomRadius=".5rem">
-                <Box p={".5rem"} bg={"blue.600"} color="white">
+                <Box p={".5rem"} bg={"#3371BC"} color="white">
                   <p>Email</p>
                 </Box>
                 <form onSubmit={handleSubmit}>
@@ -212,10 +212,10 @@ const Login = ({ decodedToken, isExpired }) => {
             fontSize=".8rem"
           >
             <Flex>
-              <a className="px-3 border-r">aim-talk top page</a>
-              <a className="px-3 border-r">Terms of Use</a>
-              <a className="px-3 border-r">Privacy Policy</a>
-              <a className="px-3 border-r">Contact Us</a>
+              <a className="border-r px-3">aim-talk top page</a>
+              <a className="border-r px-3">Terms of Use</a>
+              <a className="border-r px-3">Privacy Policy</a>
+              <a className="border-r px-3">Contact Us</a>
               <a className="px-3">Frequently Ask Question</a>
             </Flex>
             <a> Copyright * 2024 aim-talk. All rights reserved </a>
