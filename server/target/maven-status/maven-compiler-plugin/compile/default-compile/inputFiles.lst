@@ -3,6 +3,7 @@ C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\dto\SampleData.java
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\ServerApplication.java
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\dto\LoginRequest.java
+C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\dto\Message.java
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\model\UserRequest.java
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\service\PaypalService.java
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\service\EmailService.java
@@ -18,8 +19,10 @@ C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\dto\NonVerified.java
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\model\TransactionClient.java
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\controller\MainController.java
+C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\dto\ChatGPTRequest.java
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\dto\Order.java
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\dto\RegisterRequest.java
+C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\controller\CustomBotController.java
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\dto\TransactionResponse.java
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\model\Payout.java
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\mapper\UserMapper.java
@@ -28,11 +31,13 @@ C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\dto\Token.java
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\model\PayoutClient.java
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\controller\PaypalController.java
+C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\dto\ChatGPTResponse.java
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\model\ChannelProperties.java
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\model\Transaction.java
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\config\AppConfiguration.java
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\model\Role.java
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\config\WebConfiguration.java
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\dto\Fee.java
+C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\config\OpenAIConfig.java
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\model\User.java
 C:\Users\mboquiren\Desktop\aim-webdev-prototype\server\src\main\java\aim\server\model\UserAuthentication.java

@@ -71,7 +71,7 @@ export const TransactionHistory = () => {
 
     return (
         <div className='w-full'>
-            <WindowContainer headerTitle="Transaction History">
+            <WindowContainer headerTitle="Transaction History" header={true}>
                 <div className="sub-header flex px-9 py-6">
                     <ExportCsv
                         data={transactionData}
