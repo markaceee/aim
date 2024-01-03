@@ -134,7 +134,6 @@ const StudentManagement = () => {
           "December",
         ];
         const updatedData = res.data.map((user) => {
-
           let fullName =
             user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1);
           if (user.middleName) fullName += " " + user.middleName.toUpperCase();
@@ -156,8 +155,11 @@ const StudentManagement = () => {
           return {
             id: user.id,
             fullName,
-            birthDate: dateOfBirth ? `${months[dateOfBirth.getMonth()]
-              } ${dateOfBirth.getDate()}, ${dateOfBirth.getFullYear()}` : "",
+            birthDate: dateOfBirth
+              ? `${
+                  months[dateOfBirth.getMonth()]
+                } ${dateOfBirth.getDate()}, ${dateOfBirth.getFullYear()}`
+              : "",
             ...user,
           };
         });
@@ -172,7 +174,7 @@ const StudentManagement = () => {
       <WindowContainer headerTitle="Student" header={true}>
         <div className="student-management px-9 py-6 w-full">
           <div className="sub-header flex gap-3 mb-3">
-              {/* <form onSubmit={handleSearch}>
+            {/* <form onSubmit={handleSearch}>
               <div className="p-2 pl-0">
                 <button type="submit">Register</button>
               </div>
@@ -196,75 +198,74 @@ const StudentManagement = () => {
 
           <WindowContainer headerTitle="Student Search">
             <form onSubmit={handleSearch} className="flex flex-col">
-              <table className="student-management-tbl flex w-full">
+              <table className="flex w-full student-management-tbl">
                 <tbody className="flex flex-col w-full">
                   <tr>
                     {/* <a href="localhost:8080/api/aim/search/{user.id}"></a> */}
                     <TextInputRow
                       headerTitle="Name"
-                      className="outline outline-0 w-3/4 rounded-sm"
+                      className="w-3/4 rounded-sm outline outline-0"
                       name="name"
                       id="name"
                       placeholder="Enter name"
                       value={inputValues.name}
-                      onChange={handleInputChange}
                     />
 
                     <NumberInputRow
                       headerTitle="Age"
-                      className="outline outline-0 w-3/4 rounded-sm"
+                      className="w-3/4 rounded-sm outline outline-0"
                       name="age"
                       id="age"
                       placeholder="Enter Age"
                       value={inputValues.age}
-                      onChange={handleInputChange}
                     />
                   </tr>
                   <tr>
                     <TextInputRow
                       headerTitle="Skype"
-                      className="outline outline-0 w-3/4 rounded-sm"
+                      className="w-3/4 rounded-sm outline outline-0"
                       name="skypeId"
                       id="skypeId"
                       placeholder="Enter skype"
                       value={inputValues.skypeId}
-                      onChange={handleInputChange}
                     />
 
                     <EmailInputRow
                       headerTitle="Email"
-                      className="outline outline-0 w-3/4 rounded-sm"
+                      className="w-3/4 rounded-sm outline outline-0"
                       type="text"
                       name="email"
                       id="email"
                       placeholder="Enter email"
                       value={inputValues.email}
-                      onChange={handleInputChange}
                     />
                   </tr>
                   <tr>
                     <TextInputRow
                       headerTitle="Address"
-                      className="outline outline-0 w-3/4 rounded-sm"
+                      className="w-3/4 rounded-sm outline outline-0"
                       name="address"
                       id="address"
                       placeholder="Enter address"
                       value={inputValues.address}
-                      onChange={handleInputChange}
                     />
-                    <th><span className="ml-3">Date of Birth</span></th>
+                    <th>
+                      <span className="ml-3">Date of Birth</span>
+                    </th>
                     <td className="p-2">
                       <DateInput
                         data={dateOfBirthValue}
                         setData={setDateOfBirthValue}
-                        className="outline outline-0 w-3/4 rounded-sm"
+                        className="w-3/4 rounded-sm outline outline-0"
                         isRequired={false}
                       />
                     </td>
                   </tr>
                   <tr>
-                  <th><span className="ml-3">Gender</span></th>
-                    <td className="flex grow p-2 gap-x-2">
+                    <th>
+                      <span className="ml-3">Gender</span>
+                    </th>
+                    <td className="flex p-2 grow gap-x-2">
                       <div className="flex items-center gap-x-2">
                         <input
                           className="border border-solid"
@@ -292,7 +293,7 @@ const StudentManagement = () => {
                     </td>
                     <PaymentSelectInputRow
                       headerTitle="Payment Mode"
-                      className="outline outline-0 w-3/4 rounded-sm"
+                      className="w-3/4 border border-black border-solid"
                       name="paymentMode"
                       id="paymentMode"
                       data={paymentModeValue}
@@ -327,8 +328,6 @@ const StudentManagement = () => {
         </div>
       </WindowContainer>
     </div>
-
-
   );
 };
 

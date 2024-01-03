@@ -15,10 +15,10 @@ import aim.server.dto.ChatGPTResponse;
 @RequestMapping("/bot")
 public class CustomBotController {
 
-  @Value("${OPEN_AI_MODEL}")
+  @Value("${openai.model}")
   private String model;
 
-  @Value("${OPEN_AI_URL}")
+  @Value("${openai.api.url}")
   private String apiURL;
 
   @Autowired

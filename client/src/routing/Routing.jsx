@@ -20,6 +20,7 @@ import Payout from "../pages/Payout/Payout";
 import { TransactionHistory } from "../pages/Payout/TransactionHistory";
 import Paypal from "../pages/Paypal/Paypal";
 import PrivateRouteAdmin from "./PrivateRouteAdmin";
+import TeachingMaterial from "../pages/Management/TeachingMaterialManagement/TeachingMaterial";
 
 const Routing = () => {
   const { decodedToken, isExpired } = useJwt(getAuthToken());
@@ -34,17 +35,23 @@ const Routing = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/paypal" element={<Paypal />} />
-      <Route path="/payout" >
-        <Route index element={
-          <Container>
-            <Payout />
-          </Container>
-        }></Route>
-        <Route path="history" element={
-          <Container>
-            <TransactionHistory />
-          </Container>
-        }></Route>
+      <Route path="/payout">
+        <Route
+          index
+          element={
+            <Container>
+              <Payout />
+            </Container>
+          }
+        ></Route>
+        <Route
+          path="history"
+          element={
+            <Container>
+              <TransactionHistory />
+            </Container>
+          }
+        ></Route>
       </Route>
       <Route path="/instructor">
         <Route index element={<Instructor />} />
@@ -56,7 +63,7 @@ const Routing = () => {
         path="/student-management"
         element={
           <Container>
-              <StudentManagement />
+            <StudentManagement />
           </Container>
         }
       />
@@ -73,6 +80,15 @@ const Routing = () => {
           </Container>
         }
       />
+
+      <Route
+        path="/teaching-material-management"
+        element={
+          <Container>
+            <TeachingMaterial />
+          </Container>
+        }
+      />
       <Route
         path="/student-management/image-upload-local"
         element={
@@ -83,11 +99,7 @@ const Routing = () => {
       />
       <Route
         path="/student-management/show-student"
-        element={
-          <Container>
-            {/* <ShowStudent /> */}
-          </Container>
-        }
+        element={<Container>{/* <ShowStudent /> */}</Container>}
       />
       <Route
         path="/student-management/month"
@@ -99,18 +111,18 @@ const Routing = () => {
       />
       {/* ------------------------------------------- */}
       <Route
-        // element={
-        //   <PrivateRouteAdmin
-        //     decodedToken={decodedToken}
-        //     isExpired={isExpired}
-        //   />
-        // }
+      // element={
+      //   <PrivateRouteAdmin
+      //     decodedToken={decodedToken}
+      //     isExpired={isExpired}
+      //   />
+      // }
       >
         <Route
           path="/dashboard"
           element={
             <Container>
-                <Dashboard />
+              <Dashboard />
             </Container>
           }
         />
