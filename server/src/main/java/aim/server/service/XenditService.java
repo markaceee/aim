@@ -3,6 +3,7 @@ package aim.server.service;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.xendit.Xendit;
@@ -13,14 +14,17 @@ import aim.server.dto.PayoutData;
 import aim.server.dto.TransactionData;
 import aim.server.model.Payout;
 import aim.server.model.Transaction;
+import jakarta.annotation.PostConstruct;
 
 @Service
 public class XenditService {
 
-    // @Value("${xendit.secret}")
-    private String key = "xnd_development_M8RYMNloiN6GdfsYuVwl9grhc4HhccD6e8xbjlTlh10S7mwEJeux6wH2XR8";
+    @Value("${xendit.secret}")
+    private String key;
 
-    public XenditService() {
+
+    @PostConstruct
+    public void init() {
         Xendit.Opt.setApiKey(key);
     }
 
