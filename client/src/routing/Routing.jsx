@@ -20,6 +20,7 @@ import Payout from "../pages/Payout/Payout";
 import { TransactionHistory } from "../pages/Payout/TransactionHistory";
 import Paypal from "../pages/Paypal/Paypal";
 import PrivateRouteAdmin from "./PrivateRouteAdmin";
+import TeachingMaterial from "../pages/Management/TeachingMaterialManagement/TeachingMaterial";
 
 const Routing = () => {
   const { decodedToken, isExpired } = useJwt(getAuthToken());
@@ -76,6 +77,15 @@ const Routing = () => {
         element={
           <Container>
             <Register />
+          </Container>
+        }
+      />
+
+      <Route
+        path="/teaching-material-management"
+        element={
+          <Container>
+            <TeachingMaterial />
           </Container>
         }
       />
