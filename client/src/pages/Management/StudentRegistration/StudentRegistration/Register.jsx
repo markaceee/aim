@@ -174,233 +174,238 @@ const Register = ({ onImageResized }) => {
   };
 
   return (
-    <WindowContainer headerTitle="Student Registration">
-        <form className="w-full px-9 py-6" onSubmit={handleSubmit}>
-          <div className="h-10 w-full text-white bg-[#404D6C] flex items-center pl-3">
+    <WindowContainer headerTitle="Student Registration" header={true}>
+      <div className="w-full px-9 py-6">
+        <WindowContainer headerTitle="Student Information">
+          <form className="w-full px-9 py-6" onSubmit={handleSubmit}>
+            {/* <div className="h-10 w-full text-white bg-[#404D6C] flex items-center pl-3">
             Student Information
-          </div>
-          <div className="w-full overflow-x-hidden h-5/6">
-            <div className="w-full">
-              <table className="flex w-full student-registration-tbl">
-                <tbody className="flex flex-col w-full">
-                  <tr>
-                    <th><div className="ml-3">First Name</div></th>
-                    <InputField
-                      name="firstName"
-                      type="text"
-                      value={student.firstName}
-                      onChange={handleChange}
-                      placeholder="First Name"
-                      error={errors.firstName}
-                    />
-                  </tr>
-                  <tr>
-                    <th><div className="ml-3">Middle Name</div></th>
-                    <InputField
-                      name="middleName"
-                      type="text"
-                      value={student.middleName}
-                      onChange={handleChange}
-                      placeholder="Middle Name"
-                      error={errors.middleName}
-                    />
-                  </tr>
-                  <tr>
-                    <th><div className="ml-3">Last Name</div></th>
-                    <InputField
-                      name="lastName"
-                      type="text"
-                      value={student.lastName}
-                      onChange={handleChange}
-                      placeholder="Last Name"
-                      error={errors.lastName}
-                    />
-                  </tr>
-                  <tr>
-                    <th><div className="ml-3">Age</div></th>
-                    <InputField
-                      label="Age"
-                      name="age"
-                      type="number"
-                      value={student.age}
-                      onChange={handleChange}
-                      placeholder="Age"
-                      error={errors.age}
-                      svg={invalid}
-                      disabled={!!student.dateOfBirth} // Set disabled based on the presence of dateOfBirth
-                    />
-                  </tr>
-                  <tr>
-                    <th><div className="ml-3">Date of Birth</div></th>
-                    <InputField
-                      label="Date of Birth"
-                      name="dateOfBirth"
-                      type="date"
-                      value={student.dateOfBirth}
-                      onChange={handleChange}
-                      error={errors.dateOfBirth}
-                      svg={invalid}
-                    />
-                  </tr>
-                  <tr>
-                    <th><div className="ml-3">Gender</div></th>
-                    <td>
-                      <div className="flex flex-row gap-3 m-2">
-                        <RadioButton
-                          id="male"
-                          name="gender"
-                          value="MALE"
-                          checked={student.gender === "MALE"}
-                          onChange={genderChange}
-                          label="Male"
-                        />
-                        <RadioButton
-                          id="female"
-                          name="gender"
-                          value="FEMALE"
-                          checked={student.gender === "FEMALE"}
-                          onChange={genderChange}
-                          label="Female"
-                        />
-                      </div>
-                      <ErrorMessage
-                        error={errors.gender}
-                        svg={invalid}
-                        className="mt-2"
+          </div> */}
+            <div className="w-full overflow-x-hidden h-5/6">
+              <div className="w-full">
+                <table className="flex w-full student-registration-tbl">
+                  <tbody className="flex flex-col w-full">
+                    <tr>
+                      <th><div className="ml-3">First Name</div></th>
+                      <InputField
+                        name="firstName"
+                        type="text"
+                        value={student.firstName}
+                        onChange={handleChange}
+                        placeholder="First Name"
+                        error={errors.firstName}
                       />
-                    </td>
-                  </tr>
-                  <tr>
-                    <th><div className="ml-3">Address</div></th>
-                    <InputField
-                      label="Address"
-                      name="address"
-                      type="text"
-                      value={student.address}
-                      onChange={handleChange}
-                      placeholder="Address"
-                      error={errors.address}
-                      svg={invalid}
-                      autocomplete="street-address" // Add autocomplete attribute for address
-                    />
-                  </tr>
-                  <tr>
-                    <th><div className="ml-3">Email Address</div></th>
-                    <InputField
-                      label="Email Address"
-                      name="email"
-                      type="text"
-                      value={student.email}
-                      onChange={handleChange}
-                      placeholder="Email"
-                      error={errors.email}
-                      svg={invalid}
-                      autocomplete="email" // Add autocomplete attribute for email
-                    />
-                  </tr>
+                    </tr>
+                    <tr>
+                      <th><div className="ml-3">Middle Name</div></th>
+                      <InputField
+                        name="middleName"
+                        type="text"
+                        value={student.middleName}
+                        onChange={handleChange}
+                        placeholder="Middle Name"
+                        error={errors.middleName}
+                      />
+                    </tr>
+                    <tr>
+                      <th><div className="ml-3">Last Name</div></th>
+                      <InputField
+                        name="lastName"
+                        type="text"
+                        value={student.lastName}
+                        onChange={handleChange}
+                        placeholder="Last Name"
+                        error={errors.lastName}
+                      />
+                    </tr>
+                    <tr>
+                      <th><div className="ml-3">Age</div></th>
+                      <InputField
+                        label="Age"
+                        name="age"
+                        type="number"
+                        value={student.age}
+                        onChange={handleChange}
+                        placeholder="Age"
+                        error={errors.age}
+                        svg={invalid}
+                        disabled={!!student.dateOfBirth} // Set disabled based on the presence of dateOfBirth
+                      />
+                    </tr>
+                    <tr>
+                      <th><div className="ml-3">Date of Birth</div></th>
+                      <InputField
+                        label="Date of Birth"
+                        name="dateOfBirth"
+                        type="date"
+                        value={student.dateOfBirth}
+                        onChange={handleChange}
+                        error={errors.dateOfBirth}
+                        svg={invalid}
+                      />
+                    </tr>
+                    <tr>
+                      <th><div className="ml-3">Gender</div></th>
+                      <td>
+                        <div className="flex flex-row gap-3 m-2">
+                          <RadioButton
+                            id="male"
+                            name="gender"
+                            value="MALE"
+                            checked={student.gender === "MALE"}
+                            onChange={genderChange}
+                            label="Male"
+                          />
+                          <RadioButton
+                            id="female"
+                            name="gender"
+                            value="FEMALE"
+                            checked={student.gender === "FEMALE"}
+                            onChange={genderChange}
+                            label="Female"
+                          />
+                        </div>
+                        <ErrorMessage
+                          error={errors.gender}
+                          svg={invalid}
+                          className="mt-2"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <th><div className="ml-3">Address</div></th>
+                      <InputField
+                        label="Address"
+                        name="address"
+                        type="text"
+                        value={student.address}
+                        onChange={handleChange}
+                        placeholder="Address"
+                        error={errors.address}
+                        svg={invalid}
+                        autocomplete="street-address" // Add autocomplete attribute for address
+                      />
+                    </tr>
+                    <tr>
+                      <th><div className="ml-3">Email Address</div></th>
+                      <InputField
+                        label="Email Address"
+                        name="email"
+                        type="text"
+                        value={student.email}
+                        onChange={handleChange}
+                        placeholder="Email"
+                        error={errors.email}
+                        svg={invalid}
+                        autocomplete="email" // Add autocomplete attribute for email
+                      />
+                    </tr>
 
-                  <tr>
-                    <th><div className="ml-3">Password</div></th>
-                    <InputField
-                      name="password"
-                      type="password"
-                      value={student.password}
-                      onChange={handleChange}
-                      placeholder="Password"
-                      error={errors.password}
-                    />
-                  </tr>
+                    <tr>
+                      <th><div className="ml-3">Password</div></th>
+                      <InputField
+                        name="password"
+                        type="password"
+                        value={student.password}
+                        onChange={handleChange}
+                        placeholder="Password"
+                        error={errors.password}
+                      />
+                    </tr>
 
-                  <tr>
-                    <th><div className="ml-3">Skype ID</div></th>
-                    <InputField
-                      label="Skype ID"
-                      name="skypeId"
-                      type="number"
-                      value={student.skypeId}
-                      onChange={handleChange}
-                      placeholder="Skype"
-                      error={errors.skypeId}
-                      svg={invalid}
-                    />
-                  </tr>
+                    <tr>
+                      <th><div className="ml-3">Skype ID</div></th>
+                      <InputField
+                        label="Skype ID"
+                        name="skypeId"
+                        type="number"
+                        value={student.skypeId}
+                        onChange={handleChange}
+                        placeholder="Skype"
+                        error={errors.skypeId}
+                        svg={invalid}
+                      />
+                    </tr>
 
-                  <tr>
-                    <th><div className="ml-3">Mode of Payment</div></th>
-                    <SelectField
-                      id="modeOfPayment"
-                      name="modeOfPayment"
-                      value={student.paymentMode}
-                      onChange={paymentModeChange}
-                      options={[
-                        { value: "gcash", label: "GCash" },
-                        { value: "maya", label: "Maya" },
-                        { value: "paypal", label: "PayPal" },
-                      ]}
-                      error={errors.paymentMode}
-                    />
-                  </tr>
+                    <tr>
+                      <th><div className="ml-3">Mode of Payment</div></th>
+                      <SelectField
+                        id="modeOfPayment"
+                        name="modeOfPayment"
+                        value={student.paymentMode}
+                        onChange={paymentModeChange}
+                        options={[
+                          { value: "gcash", label: "GCash" },
+                          { value: "maya", label: "Maya" },
+                          { value: "paypal", label: "PayPal" },
+                        ]}
+                        error={errors.paymentMode}
+                      />
+                    </tr>
 
-                  <tr>
-                    <th><div className="ml-3">Areas for Improvements</div></th>
-                    <TextAreaField
-                      name="areasForImprovement"
-                      value={student.areasForImprovement}
-                      onChange={handleChange}
-                      error={errors.areasForImprovement}
-                      svg={invalid}
-                    />
-                  </tr>
-                  <tr>
-                    <th><div className="ml-3">Upload Profile Picture</div></th>
-                    <td>
-                      {!imageUploaded && (
-                        <>
-                          <p>
-                            <label htmlFor="fileInput"></label>
-                            <input
-                              type="file"
-                              id="fileInput"
-                              ref={fileInputRef}
-                              accept="image/png, image/jpeg, image/jpg"
-                              name="image"
-                              onChange={handleImageChange}
-                            />
-                          </p>
-                          {isLoading && <p>Loading...</p>}
-                          {imagePreview && (
-                            <img
-                              src={imagePreview}
-                              alt="profileImg"
-                              style={{
-                                width: "30%",
-                                height: "auto",
-                              }}
-                            />
-                          )}
-                        </>
-                      )}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                    <tr>
+                      <th><div className="ml-3">Areas for Improvements</div></th>
+                      <TextAreaField
+                        name="areasForImprovement"
+                        value={student.areasForImprovement}
+                        onChange={handleChange}
+                        error={errors.areasForImprovement}
+                        svg={invalid}
+                      />
+                    </tr>
+                    <tr>
+                      <th><div className="ml-3">Upload Profile Picture</div></th>
+                      <td>
+                        {!imageUploaded && (
+                          <>
+                            <p>
+                              <label htmlFor="fileInput"></label>
+                              <input
+                                type="file"
+                                id="fileInput"
+                                ref={fileInputRef}
+                                accept="image/png, image/jpeg, image/jpg"
+                                name="image"
+                                onChange={handleImageChange}
+                              />
+                            </p>
+                            {isLoading && <p>Loading...</p>}
+                            {imagePreview && (
+                              <img
+                                src={imagePreview}
+                                alt="profileImg"
+                                style={{
+                                  width: "30%",
+                                  height: "auto",
+                                }}
+                              />
+                            )}
+                          </>
+                        )}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
-          <div className="w-auto flex justify-center bg-[#F1F1F1] m-3">
-            <div className="flex justify-center w-2/4 p-3">
-              <button
-                type="submit"
-                className={`w-1/2 h-10 text-white rounded-md ${isFormValid && !imageUploaded ? "bg-blue-600" : "bg-blue-400"
-                  }`}
-                disabled={!isFormValid || imageUploaded}
-              >
-                Register
-              </button>
+            <div className="w-auto flex justify-center bg-[#F1F1F1] m-3">
+              <div className="flex justify-center w-2/4 p-3">
+                <button
+                  type="submit"
+                  className={`w-1/2 h-10 text-white rounded-md ${isFormValid && !imageUploaded ? "bg-blue-600" : "bg-blue-400"
+                    }`}
+                  disabled={!isFormValid || imageUploaded}
+                >
+                  Register
+                </button>
+              </div>
             </div>
-          </div>
-          <Toaster />
-        </form>
-      </WindowContainer>
+            <Toaster />
+          </form>
+        </WindowContainer>
+      </div>
+
+    </WindowContainer>
   );
 };
 

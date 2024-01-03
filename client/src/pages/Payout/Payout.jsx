@@ -103,7 +103,7 @@ const Payout = () => {
 
     return (<>
         <div className='w-full'>
-            <WindowContainer headerTitle="Payment">
+            <WindowContainer headerTitle="Payment" header={true}>
                 <div className='px-9 py-6 w-full overflow-x-scroll'>
                     <div className='mb-3 flex justify-between'>
                         <h1 className='text-lg'><span className='font-bold'>Total Balance:</span> {balance ? formattedCurrency(balance) : "Loading..."}</h1>
@@ -111,7 +111,9 @@ const Payout = () => {
                     </div>
 
                     {users.length > 0 ? (
-                        <BasicTable data={users} columns={columns} openModal={openModal} setOpenModal={setOpenModal} setSelectedUser={setSelectedUser} />
+                        <WindowContainer headerTitle="List of Instructors" >
+                            <BasicTable data={users} columns={columns} openModal={openModal} setOpenModal={setOpenModal} setSelectedUser={setSelectedUser} />
+                        </WindowContainer>
                     ) : (
                         <p>Loading users...</p>
                     )}

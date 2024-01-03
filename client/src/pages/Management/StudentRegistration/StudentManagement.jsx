@@ -169,7 +169,7 @@ const StudentManagement = () => {
 
   return (
     <div className="w-full">
-      <WindowContainer headerTitle="Student">
+      <WindowContainer headerTitle="Student" header={true}>
         <div className="student-management px-9 py-6 w-full">
           <div className="sub-header flex gap-3 mb-3">
               {/* <form onSubmit={handleSearch}>
