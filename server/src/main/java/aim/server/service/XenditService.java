@@ -17,8 +17,8 @@ import aim.server.model.Transaction;
 @Service
 public class XenditService {
 
-    // @Value("${xendit.secret}")
-    private String key = "xnd_development_M8RYMNloiN6GdfsYuVwl9grhc4HhccD6e8xbjlTlh10S7mwEJeux6wH2XR8";
+    @Value
+    private String key;
 
     public XenditService() {
         Xendit.Opt.setApiKey(key);
