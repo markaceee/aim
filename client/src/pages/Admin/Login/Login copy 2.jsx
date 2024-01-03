@@ -43,7 +43,7 @@ const Login = ({ decodedToken, isExpired }) => {
   return (
     <Box height='100vh'>
       <Box w={'100%'} h={'10rem'} bg={'orange.100'} p='.5rem'>
-        <Box w='20rem' h='100%' bg='blue.600' fontSize='sm' p='1rem' alignItems='center' display='flex' color='white'>
+        <Box w='20rem' h='100%' bg='#3371BC' fontSize='sm' p='1rem' alignItems='center' display='flex' color='white'>
           <p>Admin login</p>
         </Box>
       </Box>
@@ -66,7 +66,7 @@ const Login = ({ decodedToken, isExpired }) => {
           }
 
 
-          <Box p={'.5rem'} bg={'blue.600'} color='white'>
+          <Box p={'.5rem'} bg={'#3371BC'} color='white'>
             <p>Email</p>
           </Box>
           <form onSubmit={handleSubmit}>
@@ -109,9 +109,28 @@ const Login = ({ decodedToken, isExpired }) => {
 
         </Box>
       </Box>
-      <Box w={'100%'} h={'8rem'} bg={'blue.900'} position={'relative'} bottom={'0'}>
-
-      </Box>
+      <Box
+            w={"100%"}
+            h={"8rem"}
+            bg={"blue.900"}
+            position={"relative"}
+            bottom={"0"}
+            p="1.5rem"
+            color="gray.400"
+            display="flex"
+            alignItems="center"
+            justifyContent="space-between"
+            fontSize=".8rem"
+          >
+            <Flex>
+              <a className="border-r px-3">aim-talk top page</a>
+              <a className="border-r px-3">Terms of Use</a>
+              <a className="border-r px-3">Privacy Policy</a>
+              <a className="border-r px-3">Contact Us</a>
+              <a className="px-3">Frequently Ask Question</a>
+            </Flex>
+            <a> Copyright * 2024 aim-talk. All rights reserved </a>
+          </Box>
     </Box>
 
   )
