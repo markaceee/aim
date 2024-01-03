@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { login } from '../../../api/auth'
 
 const Login = ({ decodedToken, isExpired }) => {
+
   const navigate = useNavigate()
 
   const [email, setEmail] = useState('')
@@ -30,7 +31,6 @@ const Login = ({ decodedToken, isExpired }) => {
           console.log(e);
         });
     }
-
 
   };
 
@@ -64,7 +64,6 @@ const Login = ({ decodedToken, isExpired }) => {
               </Alert>
             )
           }
-
 
           <Box p={'.5rem'} bg={'#3371BC'} color='white'>
             <p>Email</p>
