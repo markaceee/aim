@@ -32,8 +32,6 @@ const Login = ({ decodedToken, isExpired }) => {
           console.log(e);
         });
     }
-
-
   };
 
   useEffect(() => {
