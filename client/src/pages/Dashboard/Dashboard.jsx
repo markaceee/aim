@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { FcBusinessman, FcBusinesswoman, FcHeadset, FcHighPriority, FcMinus, FcMoneyTransfer, FcPlus, FcSalesPerformance } from "react-icons/fc";
+import {
+  FcBusinessman,
+  FcBusinesswoman,
+  FcHeadset,
+  FcHighPriority,
+  FcMinus,
+  FcMoneyTransfer,
+  FcPlus,
+  FcSalesPerformance,
+} from "react-icons/fc";
 import { getData } from "../../api/auth";
 import unit from "../../assets/svg/unit.svg";
 import Button from "../../components/ui/Button";
@@ -25,62 +34,67 @@ const Dashboard = () => {
       name: "Item 1",
       content: "samplecontent1",
       data: sampleData.sample1,
-      icon: <FcBusinessman size='40'/>,
+      icon: <FcBusinessman size="40" />,
     },
     {
       id: 2,
       name: "Item 2",
       content: "samplecontent2",
       data: sampleData.sample2,
-      icon: <FcMoneyTransfer size='40' />
+      icon: <FcMoneyTransfer size="40" />,
     },
     {
       id: 3,
       name: "Item 3",
       content: "samplecontent3",
       data: sampleData.sample3,
-      icon: <FcBusinesswoman size='40'/>,
+      icon: <FcBusinesswoman size="40" />,
     },
     {
       id: 4,
       name: "Item 4",
       content: "samplecontent4",
       data: sampleData.sample4,
-      icon: <FcSalesPerformance size='40' />
+      icon: <FcSalesPerformance size="40" />,
     },
     {
       id: 5,
       name: "Item 5",
       content: "samplecontent5",
       data: sampleData.sample5,
-      icon: <FcHeadset size='40' />
+      icon: <FcHeadset size="40" />,
     },
     {
       id: 6,
       name: "Item 6",
       content: "samplecontent6",
       data: sampleData.sample6,
-      icon: <FcBusinessman size='40'/>,
-      iconTwo: <FcPlus size='20' />,
-      isTwoIcon: true
+      icon: <FcBusinessman size="40" />,
+      iconTwo: <FcPlus size="20" />,
+      isTwoIcon: true,
     },
     {
       id: 7,
       name: "Item 7",
       content: "samplecontent7",
       data: sampleData.sample7,
-      icon: <FcBusinessman size='40'/>,
-      iconTwo: <div className="flex bg-red-600 rounded-full text-white" > <FcMinus size='18'/> </div>,
-      isTwoIcon: true
+      icon: <FcBusinessman size="40" />,
+      iconTwo: (
+        <div className="flex text-white bg-red-600 rounded-full">
+          {" "}
+          <FcMinus size="18" />{" "}
+        </div>
+      ),
+      isTwoIcon: true,
     },
     {
       id: 8,
       name: "Item 8",
       content: "samplecontent8",
       data: sampleData.sample8,
-      icon: <FcBusinessman size='40'/>,
-      iconTwo: <FcHighPriority size='20' />,
-      isTwoIcon: true
+      icon: <FcBusinessman size="40" />,
+      iconTwo: <FcHighPriority size="20" />,
+      isTwoIcon: true,
     },
   ];
   return (
@@ -101,24 +115,23 @@ const Dashboard = () => {
                         {item.name}
                       </h5>
                     </div>
-<<<<<<< HEAD
                     <div className="flex items-center justify-between w-full h-20 p-6 overflow-hidden bg-white content min-w-fit">
-                      <img src={item.svg} alt="user logo" className="w-10" />
-                      <p className="block font-sans text-base antialiased font-light leading-relaxed text-inherit sm:text-md md:text-lg lg:text-2xl">
-                        <strong>999</strong>
-=======
-                    <div className="content flex justify-between items-center bg-white w-full h-20 min-w-fit overflow-hidden p-6">
                       {/* <img src={item.svg} alt="user logo" className="w-10" /> */}
-                      {(
-                        item.isTwoIcon ? (<div  className="relative">
+                      {item.isTwoIcon ? (
+                        <div className="relative">
                           {item.icon}
-                          <div className="absolute bottom-0 right-0">{item.iconTwo}</div>
-                        </div>) : item.icon
+                          <div className="absolute bottom-0 right-0">
+                            {item.iconTwo}
+                          </div>
+                        </div>
+                      ) : (
+                        item.icon
                       )}
-                      
+
                       <p className="block font-sans text-base antialiased font-light leading-relaxed text-inherit sm:text-md md:text-lg lg:text-2xl">
-                        {Math.floor(Math.random() * 1000000).toLocaleString("en-US")}
->>>>>>> 076196b26be8f6ada11ccd0a8de7103f5134987c
+                        {Math.floor(Math.random() * 1000000).toLocaleString(
+                          "en-US"
+                        )}
                       </p>
                       <img src={unit} alt="unit logo" className="w-8" />
                     </div>

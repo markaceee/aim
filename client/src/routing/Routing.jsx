@@ -101,21 +101,12 @@ const Routing = () => {
       />
       {/* ------------------------------------------- */}
       <Route
-<<<<<<< HEAD
       // element={
       //   <PrivateRouteAdmin
       //     decodedToken={decodedToken}
       //     isExpired={isExpired}
       //   />
       // }
-=======
-        // element={
-        //   <PrivateRouteAdmin
-        //     decodedToken={decodedToken}
-        //     isExpired={isExpired}
-        //   />
-        // }
->>>>>>> 076196b26be8f6ada11ccd0a8de7103f5134987c
       >
         <Route
           path="/dashboard"
