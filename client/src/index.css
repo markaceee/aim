@@ -19,6 +19,14 @@ html {
   transition: all 0.2s ease-in-out;
 }
 
+.dark-header{
+  background-color: #252C41;
+}
+
+.white-header{
+  background-color: #515A79;
+}
+
 /* .shadow:before {
   content: "";
   position: absolute;
