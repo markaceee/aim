@@ -1,3 +1,4 @@
+import { Alert, AlertDescription, AlertIcon, Box, Button, Flex, FormControl, Input, InputGroup, Select } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { deleteToken, register, verifiedApplicationForm } from '../../api/api';
@@ -6,7 +7,6 @@ const VerifiedRegister = () => {
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
     const token = searchParams.get('token');
-
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -19,17 +19,23 @@ const VerifiedRegister = () => {
         arriveAtWebsite: '',
         role: "INSTRUCTOR"
     });
+    const [error, setError] = useState(false);
+    const isError = formData.firstName === '';
 
     useEffect(() => {
-        verifiedApplicationForm(token)
-            .then(res => {
-                setFormData(prevData => ({
-                    ...prevData,
-                    email: res.email,
-                    password: res.password
-                }))
-            })
-            .catch(e => navigate("/404"));
+        if (token !== null) {
+            verifiedApplicationForm(token)
+                .then(res => {
+                    setFormData(prevData => ({
+                        ...prevData,
+                        email: res.email,
+                        password: res.password
+                    }))
+                })
+                .catch(e => navigate("/404"));
+        }else{
+            navigate("/404")
+        }
     }, [])
 
     const handleDateOfBirthChange = (event) => {
@@ -45,167 +51,176 @@ const VerifiedRegister = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        try {
-            const registrationResponse = await register(formData);
-            console.log("Registered");
-            console.log(registrationResponse)
-            if (registrationResponse) {
-                await deleteToken(token);
-                console.log("Token deleted");
-                navigate("/");
+        console.log(formData)
+        if (!isError) {
+            try {
+                // console.log(formData)
+                const registrationResponse = await register(formData);
+                console.log("Registered");
+                console.log(registrationResponse)
+                if (registrationResponse) {
+                    await deleteToken(token);
+                    console.log("Token deleted");
+                    navigate("/instructor");
+                }
+            } catch (error) {
+                console.log("Error during registration or token deletion:", error);
             }
-        } catch (error) {
-            console.log("Error during registration or token deletion:", error);
+        } else {
+            setError(true)
         }
+
     }
 
     return (
-        <div className="w-full">
-            <div className="bg-blue-400 h-32 text-center flex items-center justify-center">
-                <h1 className="text-lg">Verified</h1>
-            </div>
+        <Box height='100%'>
+            <Box w={'100%'} h={'12rem'} bg={'#3371BC'} p='.5rem' position='relative' display='flex' alignItems='end'>
+                <Box p='1.5rem' fontSize='3rem' fontWeight='bold' color='bg.900'>
+                    <p>Resend Confirmation Instructions</p>
+                </Box>
+            </Box>
 
-            <div className="login flex justify-center lg:items-center w-full p-6">
-                <div className="lg:w-3/4 sm:w-full">
-                    <div className="login">
-                        <div className="p-3 bg-blue-500 text-white">
-                            <h1>Please enter matters of relevant below.</h1>
-                        </div>
-                        <div className="bg-white p-6">
-                            <form onSubmit={handleSubmit}>
-                                <div className="flex mb-1">
-                                    <label
-                                        className="bg-blue-400 px-6 py-3 w-1/4 flex items-center"
-                                    >
-                                        First name
-                                    </label>
-                                    <div className="bg-gray-400 p-3 w-full">
-                                        <input
-                                            type="text"
-                                            className="w-full p-3"
-                                            onChange={e => setFormData(prevState => ({ ...prevState, firstName: e.target.value }))}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="flex mb-1">
-                                    <label
-                                        className="bg-blue-400 px-6 py-3 w-1/4 flex items-center"
-                                    >
-                                        Last name
-                                    </label>
-                                    <div className="bg-gray-400 p-3 w-full">
-                                        <input
-                                            type="text"
-                                            className="w-full p-3"
-                                            onChange={e => setFormData(prevState => ({ ...prevState, lastName: e.target.value }))}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="flex mb-1">
-                                    <label
-                                        className="bg-blue-400 px-6 py-3 w-1/4 flex items-center"
-                                    >
+
+            <Box w={'100%'} display={'flex'} justifyContent={'center'} bg='gray.200' h='70%' p='3rem'>
+                <Box w={'50rem'}>
+                    {
+                        error && (
+                            <Alert status='warning' display='flex' justifyContent='center' mb={3}>
+                                <AlertIcon />
+                                <Box >
+                                    <AlertDescription>
+                                        Bad credentials!
+                                    </AlertDescription>
+                                </Box>
+                            </Alert>
+                        )
+                    }
+
+                    <Box p={'.5rem'} bg={'#3371BC'} color='white'>
+                        <p>Please enter matters of relevant below.</p>
+                    </Box>
+                    <form onSubmit={handleSubmit}>
+                        <Box p={'1.5rem'} bg={'white'}>
+                            <FormControl isInvalid={isError}>
+                                <InputGroup display={'flex'} alignItems={'center'}>
+                                    <Box p={'1rem'} w={'15rem'} h={'3rem'} bg={'blue.100'} display={'flex'} alignItems={'center'}>
+                                        First Name
+                                    </Box>
+                                    <Box w={'100%'} px='.8rem' py='.5rem' bg={'gray.200'}>
+                                        <Input bg={'white'} size={'sm'} type='text' placeholder='Enter First name' value={formData.firstName} onChange={(e) => setFormData({ ...formData, firstName: e.target.value })} />
+                                    </Box>
+                                </InputGroup>
+                                <InputGroup display={'flex'} alignItems={'center'} mt='.2rem'>
+                                    <Box p={'1rem'} w={'15rem'} h={'3rem'} bg={'blue.100'} display={'flex'} alignItems={'center'}>
+                                        Last Name
+                                    </Box>
+                                    <Box w={'100%'} px='.8rem' py='.5rem' bg={'gray.200'}>
+                                        <Input bg={'white'} size={'sm'} type='text' placeholder='Enter Last name' value={formData.lastName} onChange={(e) => setFormData({ ...formData, lastName: e.target.value })} />
+                                    </Box>
+                                </InputGroup>
+                                <InputGroup display={'flex'} alignItems={'center'} mt='.2rem'>
+                                    <Box p={'1rem'} w={'15rem'} h={'3rem'} bg={'blue.100'} display={'flex'} alignItems={'center'}>
                                         Nickname
-                                    </label>
-                                    <div className="bg-gray-400 p-3 w-full">
-                                        <input
-                                            type="text"
-                                            className="w-full p-3"
-                                            onChange={e => setFormData(prevState => ({ ...prevState, nickName: e.target.value }))}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="flex mb-1">
-                                    <label
-                                        className="bg-blue-400 px-6 py-3 w-1/4 flex items-center"
-                                    >
-                                        Skype ID
-                                    </label>
-                                    <div className="bg-gray-400 p-3 w-full">
-                                        <input
-                                            type="text"
-                                            className="w-full p-3"
-                                            onChange={e => setFormData(prevState => ({ ...prevState, skypeId: e.target.value }))}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="flex mb-1">
-                                    <label
-                                        className="bg-blue-400 px-6 py-3 w-1/4 flex items-center"
-                                    >
+                                    </Box>
+                                    <Box w={'100%'} px='.8rem' py='.5rem' bg={'gray.200'}>
+                                        <Input bg={'white'} size={'sm'} type='text' placeholder='Enter Nickname' value={formData.nickName} onChange={(e) => setFormData({ ...formData, nickName: e.target.value })} />
+                                    </Box>
+                                </InputGroup>
+                                <InputGroup display={'flex'} alignItems={'center'} mt='.2rem'>
+                                    <Box p={'1rem'} w={'15rem'} h={'3rem'} bg={'blue.100'} display={'flex'} alignItems={'center'}>
+                                        Skype
+                                    </Box>
+                                    <Box w={'100%'} px='.8rem' py='.5rem' bg={'gray.200'}>
+                                        <Input bg={'white'} size={'sm'} type='text' placeholder='Enter Sype ID' value={formData.skypeId} onChange={(e) => setFormData({ ...formData, skypeId: e.target.value })} />
+                                    </Box>
+                                </InputGroup>
+                                <InputGroup display={'flex'} alignItems={'center'} mt='.2rem'>
+                                    <Box p={'1rem'} w={'15rem'} h={'3rem'} bg={'blue.100'} display={'flex'} alignItems={'center'}>
                                         Sex
-                                    </label>
-                                    <div className="bg-gray-400 p-3 w-full">
-                                        <select onChange={e => setFormData(prevState => ({ ...prevState, gender: e.target.value }))} value={formData.gender}>
-                                            <option >Select</option>
-                                            <option value="MALE">Male</option>
-                                            <option value="FEMALE">Female</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div className="flex mb-1">
-                                    <label
-                                        className="bg-blue-400 px-6 py-3 w-1/4 flex items-center"
-                                    >
+                                    </Box>
+                                    <Box w={'100%'} px='.8rem' py='.5rem' bg={'gray.200'}>
+                                        <Select placeholder='Select Option' size='sm' bg='white' value={formData.gender} onChange={(e) => setFormData({ ...formData, gender: e.target.value })}>
+                                            <option value='MALE'>Male</option>
+                                            <option value='FEMALE'>Female</option>
+                                        </Select>
+                                    </Box>
+                                </InputGroup>
+                                <InputGroup display={'flex'} alignItems={'center'} mt='.2rem'>
+                                    <Box p={'1rem'} w={'15rem'} h={'3rem'} bg={'blue.100'} display={'flex'} alignItems={'center'}>
                                         Date of Birth
-                                    </label>
-                                    <div className="bg-gray-400 p-3 w-full flex gap-3">
-                                        <select name="month">
-                                            <option >Select</option>
-                                            <option value="january">January</option>
-                                        </select>
-                                        <select name="day" >
-                                            <option >Select</option>
-                                            <option value="25">25</option>
-                                        </select>
-                                        <select name="years">
-                                            <option >Select</option>
-                                            <option value="2052">2052</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div className="flex mb-1">
-                                    <label
-                                        className="bg-blue-400 px-6 py-3 w-1/4 flex items-center"
-                                    >
-                                        Internet connection
-                                    </label>
-                                    <div className="bg-gray-400 p-3 w-full">
-                                        <select onChange={e => setFormData(prevState => ({ ...prevState, internetConnection: e.target.value }))} value={formData.internetConnection}>
-                                            <option >Select</option>
-                                            <option value="fiber" >Fiber</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div className="flex mb-10">
-                                    <label
-                                        className="bg-blue-400 px-6 py-3 w-1/4 flex items-center"
-                                    >
+                                    </Box>
+                                    <Flex w={'100%'} px='.8rem' py='.5rem' bg={'gray.200'} gap='1rem'>
+                                        <Select placeholder='Year' size='sm' bg='white' >
+                                            <option value='1990'>1990</option>
+                                        </Select>
+                                        <Select placeholder='Month' size='sm' bg='white' >
+                                            <option value='January'>January</option>
+                                        </Select>
+                                        <Select placeholder='Date' size='sm' bg='white' >
+                                            <option value='1'>1</option>
+                                        </Select>
+                                    </Flex>
+                                </InputGroup>
+                                <InputGroup display={'flex'} alignItems={'center'} mt='.2rem'>
+                                    <Box p={'1rem'} w={'15rem'} h={'3rem'} bg={'blue.100'} display={'flex'} alignItems={'center'}>
+                                        Internet Connection
+                                    </Box>
+                                    <Box w={'100%'} px='.8rem' py='.5rem' bg={'gray.200'}>
+                                        <Select placeholder='Select option' size='sm' bg='white' value={formData.internetConnection} onChange={(e) => setFormData({ ...formData, internetConnection: e.target.value })}>
+                                            <option value='FIBER'>Fiber</option>
+                                        </Select>
+                                    </Box>
+                                </InputGroup>
+                                <InputGroup display={'flex'} alignItems={'center'} mt='.2rem'>
+                                    <Box p={'1rem'} w={'15rem'} h={'3rem'} bg={'blue.100'} display={'flex'} alignItems={'center'} lineHeight='1rem'>
                                         How did you arrive at this website?
-                                    </label>
-                                    <div className="bg-gray-400 p-3 w-full">
-                                        <select onChange={e => setFormData(prevState => ({ ...prevState, arriveAtWebsite: e.target.value }))} value={formData.arriveAtWebsite}>
-                                            <option >Select</option>
-                                            <option value="others" >others</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div className="bg-gray-400 flex justify-center items-center p-6">
-                                    <div className="xl:w-1/4 sm:w-1/2">
-                                        <button type='submit' className="text-center py-3 rounded bg-blue-700 text-white w-full">
-                                            Sign Up
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="header bg-blue-950 w-full h-20 text-center flex items-center justify-center">
-                <h1 className="text-lg text-white">FOOTER</h1>
-            </div>
-        </div>
+                                    </Box>
+                                    <Box w={'100%'} px='.8rem' py='.5rem' bg={'gray.200'}>
+                                        <Select placeholder='Select option' size='sm' bg='white' value={formData.arriveAtWebsite} onChange={(e) => setFormData({ ...formData, arriveAtWebsite: e.target.value })}>
+                                            <option value='Others'>Others</option>
+                                        </Select>
+                                    </Box>
+                                </InputGroup>
+                            </FormControl>
+
+                            <Box w={'100%'} bg={'gray.200'} mt='1rem' p='1rem'>
+                                <Box display='flex' justifyContent='center'>
+                                    <Button type='submit' colorScheme='blue' px='3rem'>Sign up</Button>
+                                </Box>
+                            </Box>
+
+                            <Flex w='100%' flexDirection='column' mt='1rem' color='blue.300'>
+                                {/* <Link>* Sign in</Link>
+                                <Link>* Forgot your password?</Link>
+                                <Link>* Didn't receive confirmation insturctions?</Link> */}
+                            </Flex>
+                        </Box>
+                    </form>
+
+                </Box>
+            </Box>
+            <Box
+                w={"100%"}
+                h={"8rem"}
+                bg={"blue.900"}
+                position={"relative"}
+                bottom={"0"}
+                p="1.5rem"
+                color="gray.400"
+                display="flex"
+                alignItems="center"
+                justifyContent="space-between"
+                fontSize=".8rem"
+            >
+                <Flex>
+                    <a className="border-r px-3">View the site</a>
+                    <a className="border-r px-3">Terms and Conditions</a>
+                    <a className="border-r px-3">Contact us for help</a>
+                    <a className="px-3">Frequently Ask Question</a>
+                </Flex>
+                <a> Copyright * 2024 aim-talk. All rights reserved </a>
+            </Box>
+        </Box>
     )
 }
 

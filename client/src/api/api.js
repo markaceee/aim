@@ -43,7 +43,7 @@ export const register = async (obj) => {
 
 export const deleteToken = async (token) => {
     try {
-        await http.delete(`/delete-token/${token}`);
+        await http.delete(`/delete-token?token=${token}`);
     } catch (error) {
         console.log("Error deleting token:", error);
         throw error;

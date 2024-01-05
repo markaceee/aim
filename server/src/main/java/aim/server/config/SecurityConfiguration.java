@@ -27,7 +27,7 @@ public class SecurityConfiguration {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(httpRequest -> {
                     httpRequest.requestMatchers("/**").permitAll();
-
+                    // httpRequest.requestMatchers("/search").hasRole("ADMIN");
                 })
                 .sessionManagement(
                         sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -36,4 +36,3 @@ public class SecurityConfiguration {
         return http.build();
     }
 }
-

@@ -77,7 +77,7 @@ export const TransactionHistory = () => {
                         data={transactionData}
                         headers={headers}
                         filename={"test"}
-                        exportName={"Export"}
+                        exportName={"Download in CSV format"}
                         textColor="text-white"
                         bgColor="bg-[#1A6EB5]"
                     />
