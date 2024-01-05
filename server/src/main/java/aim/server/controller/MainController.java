@@ -148,8 +148,11 @@ public class MainController {
 
     @PostMapping("/non-verified-instructor")
     public ResponseEntity<String> nonVerified(@RequestBody NonVerified nonVerified) {
-        if (nonVerified.getPassword().equals(nonVerified.getConfirmPassword())) {
+        if (nonVerified.getPassword().equals(nonVerified.getConfirmPassword())
+                && userMapper.findByEmail(nonVerified.getEmail()) == null) {
             emailService.sendMail(nonVerified.getEmail(), nonVerified.getPassword());
+        } else {
+            return ResponseEntity.ok("email exist");
         }
         return ResponseEntity.ok(" ");
     }
