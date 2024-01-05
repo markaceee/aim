@@ -19,6 +19,28 @@
             <h1 style="font-size: 1.5rem; padding: 1rem 3rem; font-weight: 600; text-align: center;">Please
                 verify your email address by clicking the button below.</h1>
             <div style="text-align: center; margin-bottom: 2rem;">
+                <a th:href="@{'https://aim-jgs9.onrender.com/instructor/verified-email?token=' + ${token}}"
+                    style="text-decoration: none; color: white; font-weight: bold; padding: 0.5rem 1rem; border-radius: 0.25rem; background-color: rgb(63 131 248 / 1);">
+                    Verify my email
+                </a>
+            </div>
+            <div style="border-top: 2px solid; border-color: rgb(198, 198, 198); padding: 1rem 2rem;">
+                <p style="margin-bottom: .5rem; color: rgb(148 163 184 / 1);">Alternatively, you
+                    can directly paste this link
+                    in your browser</p>
+                <p class="px-3">
+                    <a th:href="@{'https://aim-jgs9.onrender.com/instructor/verified-email?token=' + ${token}}"
+                        th:text="@{'https://aim-jgs9.onrender.com/instructor/verified-email?token=' + ${token}}"
+                        style="display: inline-block; word-break: break-all;"></a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- <div style="display: flex; padding: 2.5rem; justify-content: center; background-color: rgb(241 245 249);">
+        <div style="background-color: white; padding: 1.5rem; border-radius: 0.25rem; width: 40rem;">
+            <h1 style="font-size: 1.5rem; padding: 1rem 3rem; font-weight: 600; text-align: center;">Please
+                verify your email address by clicking the button below.</h1>
+            <div style="text-align: center; margin-bottom: 2rem;">
                 <a th:href="@{'http://localhost:5173/instructor/verified-email?token=' + ${token}}"
                     style="text-decoration: none; color: white; font-weight: bold; padding: 0.5rem 1rem; border-radius: 0.25rem; background-color: rgb(63 131 248 / 1);">
                     Verify my email
@@ -35,7 +57,7 @@
                 </p>
             </div>
         </div>
-    </div>
+    </div> -->
 </body>
-
+<!-- https://aim-jgs9.onrender.com -->
 </html>
